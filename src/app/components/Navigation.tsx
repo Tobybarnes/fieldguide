@@ -12,7 +12,7 @@ const guides = [
 ];
 
 const practices = [
-  { num: '01', slug: 'start-here', title: 'Start Here', build: 'Personal Page' },
+  { num: '01', slug: 'starting', title: 'Starting', build: 'Personal Page' },
   { num: '02', slug: 'capture', title: 'Capture', build: 'Link Catcher' },
   { num: '03', slug: 'remember', title: 'Remember', build: 'Daily Log' },
   { num: '04', slug: 'move', title: 'Move', build: 'Training Log' },

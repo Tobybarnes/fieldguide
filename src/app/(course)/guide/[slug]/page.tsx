@@ -117,7 +117,7 @@ export default function GuidePage() {
           </Link>
         ) : (
           <Link
-            href="/practice/start-here"
+            href="/practice/starting"
             className="text-sm text-[var(--c-black)]/60 hover:text-[var(--c-black)]"
           >
             Start Practice 01 →
