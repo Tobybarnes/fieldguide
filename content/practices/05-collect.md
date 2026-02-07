@@ -26,6 +26,8 @@ Build me a vinyl record catalog. For each record I want to track: artist, album 
 
 > **Tip:** Change the fields to match what YOU collect. Books? Tools? Sneakers? Make it yours.
 
+![Record shelf catalog - grid view with filters and search](/screenshots/practice-05-collect/01-record-shelf.png)
+
 ### 02. Add your first items
 
 Add 5-10 real items from your collection. Take photos if you want. Notice what information matters to you.

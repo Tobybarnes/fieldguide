@@ -26,6 +26,8 @@ Build me a workout tracker. I want to log exercises with: exercise name, sets, r
 
 > **Tip:** Start with your actual workout. What do you actually track?
 
+![Training log with recent workouts and exercise form](/screenshots/practice-04-move/01-training-log.png)
+
 ### 02. Log a real workout
 
 Enter your last workout. Notice what fields you use and what you skip. Notice what's missing.

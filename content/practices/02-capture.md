@@ -26,6 +26,8 @@ Build me a single-page web app for saving links. I want to paste a URL, add a ti
 
 > **Tip:** Start simple. You can always add more later. The first version should do one thing well.
 
+![Basic link catcher - URL, title, notes, and a save button](/screenshots/practice-02-capture/01-basic.png)
+
 ### 02. Test and observe
 
 Add 3-4 real links you've been meaning to save. Notice what's missing. What's annoying? What do you wish it did? Write these down.
@@ -57,6 +59,8 @@ Show the date each link was saved, formatted like "Jan 15, 2024". Add a delete b
 ```
 
 > **Tip:** If the date format isn't what you want, just tell Claude: "Format dates like '2 days ago' instead" or "Just show the month and day".
+
+![Link catcher with tags and search - filter by tag, search in real-time](/screenshots/practice-02-capture/02-with-tags.png)
 
 ### 06. Make it yours
 

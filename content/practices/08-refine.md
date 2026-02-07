@@ -14,6 +14,8 @@ By now, you've built several tools. Some you use daily; others you abandoned. Th
 
 An improved version of one of your earlier builds. You'll identify what's missing, prioritize ruthlessly, and implement the changes that actually matter.
 
+![Before and after comparison - small refinements compound into significant improvements](/screenshots/practice-08-refine/01-before-after.png)
+
 ## Steps
 
 ### 01. Pick a practice you actually use

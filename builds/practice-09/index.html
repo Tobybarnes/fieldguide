@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make Your Own</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            min-height: 100vh;
+            background-color: #faf8f5;
+            color: #2d2d2d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .number {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            color: #999;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: normal;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 1.35rem;
+            color: #666;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        .prompt-box {
+            background: #fff;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+
+        .prompt-label {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 1rem;
+        }
+
+        .prompt-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #444;
+            padding: 1.5rem;
+            background: #f8f6f3;
+            border-radius: 8px;
+            border-left: 3px solid #2d2d2d;
+        }
+
+        .ideas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .idea {
+            background: #fff;
+            padding: 1.25rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .idea-emoji {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer {
+            font-style: italic;
+            color: #888;
+            font-size: 1.1rem;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.2em;
+            background: #2d2d2d;
+            margin-left: 2px;
+            animation: blink 1s infinite;
+            vertical-align: text-bottom;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="number">PRACTICE 09</div>
+        <h1>Make Your Own</h1>
+        <p class="subtitle">You don't need permission. Build something only you would build.</p>
+
+        <div class="prompt-box">
+            <div class="prompt-label">Your starting prompt</div>
+            <div class="prompt-text">
+                Build me a tool that<span class="cursor"></span>
+            </div>
+        </div>
+
+        <div class="ideas">
+            <div class="idea">
+                <div class="idea-emoji">📊</div>
+                Track something you care about
+            </div>
+            <div class="idea">
+                <div class="idea-emoji">🔄</div>
+                Automate something tedious
+            </div>
+            <div class="idea">
+                <div class="idea-emoji">📝</div>
+                Capture something you forget
+            </div>
+            <div class="idea">
+                <div class="idea-emoji">🎯</div>
+                Focus on what matters
+            </div>
+            <div class="idea">
+                <div class="idea-emoji">🔗</div>
+                Connect scattered things
+            </div>
+            <div class="idea">
+                <div class="idea-emoji">✨</div>
+                Make something beautiful
+            </div>
+        </div>
+
+        <p class="footer">"The best tool is the one you'll actually use."</p>
+    </div>
+</body>
+</html>

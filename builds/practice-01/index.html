@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toby Barnes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #faf8f5;
+            color: #2d2d2d;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 440px;
+            padding: 3rem;
+            text-align: center;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e8e4df 0%, #d4cfc7 100%);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+        }
+
+        .bio {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            color: #5a5a5a;
+        }
+
+        .links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .links a {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            color: #2d2d2d;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .links a:hover {
+            background-color: #2d2d2d;
+            color: #faf8f5;
+            border-color: #2d2d2d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="avatar">TB</div>
+        <h1>Toby Barnes</h1>
+        <p class="bio">Design leader building tools that make work feel like play.</p>
+        <div class="links">
+            <a href="mailto:toby@example.com">Email</a>
+            <a href="https://linkedin.com/in/tobybarnes">LinkedIn</a>
+        </div>
+    </div>
+</body>
+</html>

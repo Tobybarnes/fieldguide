@@ -26,6 +26,8 @@ Build me a daily journal web app. I want a text area where I can write today's e
 
 > **Tip:** Don't ask for search or export yet. Just the basics.
 
+![Basic daily log - write today's entry, see past entries below](/screenshots/practice-03-remember/01-daily-log.png)
+
 ### 02. Write your first entry
 
 Write something real. What happened today? What are you thinking about? The app only becomes useful when you use it.
@@ -47,6 +49,8 @@ See at a glance which days have entries.
 ```prompt
 Add a small monthly calendar that shows which days have entries (maybe with a dot). Let me click a date to jump to that entry.
 ```
+
+![Daily log with mini calendar - see at a glance which days have entries](/screenshots/practice-03-remember/02-with-calendar.png)
 
 ### 05. Add search
 

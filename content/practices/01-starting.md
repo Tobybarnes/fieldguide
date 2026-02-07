@@ -32,6 +32,8 @@ Copy the code into a file called index.html. Double-click it to open in your bro
 
 > **Tip:** If you see raw code instead of a page, make sure the file ends in .html not .txt.
 
+![Initial personal page - clean and minimal](/screenshots/practice-01-starting/01-initial.png)
+
 ### 03. Look at it. Really look.
 
 What do you notice? What feels right? What feels off? This is the most important skill—developing taste by paying attention.
@@ -46,9 +48,13 @@ Change the background to a warm off-white color and make the text a dark charcoa
 
 > **Tip:** Make one request at a time. See the result. Then ask for the next thing.
 
+![After changing to warm colors - softer, easier on the eyes](/screenshots/practice-01-starting/02-warm-colors.png)
+
 ### 05. Make it yours
 
 Change the fonts. Adjust the spacing. Add a photo. Remove things that feel unnecessary. Keep going until it feels like yours.
+
+![Polished version - contained card with avatar and refined typography](/screenshots/practice-01-starting/03-polished.png)
 
 ### 06. Save a copy
 

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .dashboard {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .greeting {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .time {
+            font-size: 5rem;
+            font-weight: 200;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .date {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 0.75rem;
+        }
+
+        .greeting-text {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .widgets {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .widget {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .widget-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .widget-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .weather {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .weather-icon {
+            font-size: 3rem;
+        }
+
+        .weather-temp {
+            font-size: 2.5rem;
+            font-weight: 300;
+        }
+
+        .weather-details {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .quote-author {
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+            font-style: normal;
+        }
+
+        .todos {
+            list-style: none;
+        }
+
+        .todo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .todo:last-child {
+            border-bottom: none;
+        }
+
+        .todo-checkbox {
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .todo-checkbox.done {
+            background: #4a9;
+            border-color: #4a9;
+        }
+
+        .todo-text {
+            flex: 1;
+        }
+
+        .todo.completed .todo-text {
+            text-decoration: line-through;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .links {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.75rem;
+        }
+
+        .link {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+            text-decoration: none;
+            color: #f5f5f5;
+            transition: all 0.2s;
+        }
+
+        .link:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-2px);
+        }
+
+        .link-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .link-name {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .widget.full {
+            grid-column: span 2;
+        }
+
+        .focus-input {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            width: 100%;
+            color: #f5f5f5;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .focus-input:focus {
+            outline: none;
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .focus-input::placeholder {
+            color: rgba(255,255,255,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="greeting">
+            <div class="time">10:42</div>
+            <div class="date">Thursday, February 6, 2026</div>
+            <div class="greeting-text">Good morning, Toby</div>
+        </div>
+
+        <div class="widgets">
+            <div class="widget">
+                <div class="widget-header">
+                    <span class="widget-title">Weather</span>
+                    <span>Toronto</span>
+                </div>
+                <div class="weather">
+                    <span class="weather-icon">❄️</span>
+                    <div>
+                        <div class="weather-temp">-4°</div>
+                        <div class="weather-details">Light snow · Feels like -9°</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="widget">
+                <div class="widget-header">
+                    <span class="widget-title">Today's Focus</span>
+                </div>
+                <ul class="todos">
+                    <li class="todo completed">
+                        <div class="todo-checkbox done"></div>
+                        <span class="todo-text">Finish practice screenshots</span>
+                    </li>
+                    <li class="todo">
+                        <div class="todo-checkbox"></div>
+                        <span class="todo-text">Review design weekly</span>
+                    </li>
+                    <li class="todo">
+                        <div class="todo-checkbox"></div>
+                        <span class="todo-text">Sync fieldguide content</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="widget full">
+                <div class="widget-header">
+                    <span class="widget-title">Quote</span>
+                </div>
+                <p class="quote">"We are called to be architects of the future, not its victims."</p>
+                <p class="quote-author">— Buckminster Fuller</p>
+            </div>
+
+            <div class="widget full">
+                <div class="widget-header">
+                    <span class="widget-title">Quick Links</span>
+                </div>
+                <div class="links">
+                    <a href="#" class="link">
+                        <div class="link-icon">📧</div>
+                        <div class="link-name">Email</div>
+                    </a>
+                    <a href="#" class="link">
+                        <div class="link-icon">📅</div>
+                        <div class="link-name">Calendar</div>
+                    </a>
+                    <a href="#" class="link">
+                        <div class="link-icon">📝</div>
+                        <div class="link-name">Notes</div>
+                    </a>
+                    <a href="#" class="link">
+                        <div class="link-icon">🔗</div>
+                        <div class="link-name">Links</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -26,6 +26,8 @@ Build me a photo log. I upload one image and answer three questions: "What caugh
 
 > **Tip:** These specific questions are the point. Don't skip them.
 
+![Photo log with three questions and timeline of past entries](/screenshots/practice-06-see/01-photo-log.png)
+
 ### 02. Add your first entry
 
 Pick a recent photo from your camera roll. Not your best photo—just a recent one. Answer the three questions honestly.

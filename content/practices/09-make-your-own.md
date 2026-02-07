@@ -14,6 +14,8 @@ Everything until now has been guided. This is you on your own. Build something o
 
 Whatever you want. No requirements. No templates. Just you and Claude.
 
+![Your blank canvas - what will you build?](/screenshots/practice-09-make-your-own/01-blank-canvas.png)
+
 ## Steps
 
 ### 01. What do you wish existed?

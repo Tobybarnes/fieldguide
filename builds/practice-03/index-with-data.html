@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Log</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            min-height: 100vh;
+            background-color: #faf8f5;
+            color: #2d2d2d;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid #e8e4df;
+            padding-bottom: 1.5rem;
+        }
+
+        .header-left h1 {
+            font-size: 1.25rem;
+            font-weight: normal;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .current-date {
+            font-size: 1.5rem;
+            font-weight: normal;
+        }
+
+        .mini-calendar {
+            background: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+
+        .cal-header {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.75rem;
+        }
+
+        .cal-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+            text-align: center;
+            font-size: 0.75rem;
+        }
+
+        .cal-day {
+            padding: 4px;
+            border-radius: 4px;
+        }
+
+        .cal-day.has-entry {
+            background: #2d2d2d;
+            color: #fff;
+        }
+
+        .cal-day.today {
+            border: 2px solid #2d2d2d;
+        }
+
+        .cal-day.other-month {
+            color: #ccc;
+        }
+
+        .editor {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 180px;
+            border: none;
+            font-family: 'Georgia', serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            resize: vertical;
+            color: #2d2d2d;
+        }
+
+        textarea:focus {
+            outline: none;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #f0ede8;
+        }
+
+        .word-count {
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        button {
+            background: #2d2d2d;
+            color: #fff;
+            border: none;
+            padding: 0.6rem 1.25rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .past-entries h2 {
+            font-size: 0.9rem;
+            font-weight: normal;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 1rem;
+        }
+
+        .entry {
+            background: #fff;
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 0.75rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+        }
+
+        .entry-date {
+            font-size: 0.8rem;
+            color: #999;
+            margin-bottom: 0.4rem;
+        }
+
+        .entry-preview {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-left">
+                <h1>Daily Log</h1>
+                <div class="current-date">Thursday, February 6, 2026</div>
+            </div>
+            <div class="mini-calendar">
+                <div class="cal-header">February 2026</div>
+                <div class="cal-grid">
+                    <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+                    <span class="cal-day other-month">1</span>
+                    <span class="cal-day has-entry">2</span>
+                    <span class="cal-day has-entry">3</span>
+                    <span class="cal-day has-entry">4</span>
+                    <span class="cal-day has-entry">5</span>
+                    <span class="cal-day today">6</span>
+                    <span class="cal-day">7</span>
+                    <span class="cal-day">8</span>
+                    <span class="cal-day">9</span>
+                    <span class="cal-day">10</span>
+                    <span class="cal-day">11</span>
+                    <span class="cal-day">12</span>
+                    <span class="cal-day">13</span>
+                    <span class="cal-day">14</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="editor">
+            <textarea placeholder="What happened today?">Started working on the Field Guide course. Built the first three practices: Starting, Capture, and Remember. The daily log feels like the most personally useful one so far. There's something about writing at the end of the day that helps me process what actually happened versus what I thought would happen.
+
+The screenshot system is working well. Playwright captures the HTML files cleanly.</textarea>
+            <div class="actions">
+                <span class="word-count">67 words</span>
+                <button>Save</button>
+            </div>
+        </div>
+
+        <div class="past-entries">
+            <h2>Past Entries</h2>
+            <div class="entry">
+                <div class="entry-date">Wednesday, February 5, 2026</div>
+                <div class="entry-preview">Finalized the practice/project split. Nine practices total now. The framing feels right—these are ongoing disciplines, not one-time builds. You return to them.</div>
+            </div>
+            <div class="entry">
+                <div class="entry-date">Tuesday, February 4, 2026</div>
+                <div class="entry-preview">Set up the markdown content files. Each practice has its own file now. The sync skill will make editing much easier—change the markdown, run the skill, done.</div>
+            </div>
+            <div class="entry">
+                <div class="entry-date">Monday, February 3, 2026</div>
+                <div class="entry-preview">Restructured the navigation. Projects and Practices became just Practices. Simpler. The URL /practice/starting feels better than /project/start-here.</div>
+            </div>
+            <div class="entry">
+                <div class="entry-date">Sunday, February 2, 2026</div>
+                <div class="entry-preview">First build of the Field Guide site. Next.js, Vercel, basic auth flow. The warm paper aesthetic is working. Feels like a zine.</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -26,6 +26,8 @@ Build me a personal dashboard. Show current time, today's date, and a greeting b
 
 > **Tip:** Start simple. You can add widgets one at a time.
 
+![Personal dashboard with time, weather, todos, quote, and quick links](/screenshots/practice-07-gather/01-dashboard.png)
+
 ### 02. Add weather
 
 See the weather at a glance.

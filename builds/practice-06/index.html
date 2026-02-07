@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Log</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+            color: #2d2d2d;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 1.25rem;
+            font-weight: normal;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #999;
+            font-style: italic;
+        }
+
+        .new-entry {
+            background: #fff;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+        }
+
+        .upload-area {
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            padding: 3rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .upload-area:hover {
+            border-color: #aaa;
+            background: #fafafa;
+        }
+
+        .upload-icon {
+            font-size: 2rem;
+            color: #ccc;
+            margin-bottom: 0.5rem;
+        }
+
+        .upload-text {
+            color: #999;
+            font-size: 0.95rem;
+        }
+
+        .questions {
+            margin-top: 1.5rem;
+        }
+
+        .question {
+            margin-bottom: 1.5rem;
+        }
+
+        .question label {
+            display: block;
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .question textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            font-family: 'Georgia', serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .question textarea:focus {
+            outline: none;
+            border-color: #999;
+        }
+
+        .btn {
+            background: #2d2d2d;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .timeline {
+            margin-top: 3rem;
+        }
+
+        .timeline h2 {
+            font-size: 0.9rem;
+            font-weight: normal;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .entry {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .entry-image {
+            width: 100%;
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, #e8e4df 0%, #d4cfc7 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #c4beb6;
+        }
+
+        .entry-image.img-1 { background: linear-gradient(135deg, #87CEEB 0%, #4682B4 100%); }
+        .entry-image.img-2 { background: linear-gradient(135deg, #DDA0DD 0%, #9370DB 100%); }
+        .entry-image.img-3 { background: linear-gradient(135deg, #98D8C8 0%, #5F9EA0 100%); }
+
+        .entry-content {
+            padding: 1.5rem 2rem;
+        }
+
+        .entry-date {
+            font-size: 0.85rem;
+            color: #999;
+            margin-bottom: 1rem;
+        }
+
+        .entry-answer {
+            margin-bottom: 1.25rem;
+        }
+
+        .entry-answer .q {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 0.25rem;
+        }
+
+        .entry-answer .a {
+            color: #444;
+        }
+
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: #f0ede8;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Photo Log</h1>
+            <p class="subtitle">A practice of seeing</p>
+        </header>
+
+        <div class="new-entry">
+            <div class="upload-area">
+                <div class="upload-icon">📷</div>
+                <div class="upload-text">Click to upload today's photo</div>
+            </div>
+            <div class="questions">
+                <div class="question">
+                    <label>What caught your eye?</label>
+                    <textarea placeholder="What made you stop and take this photo?"></textarea>
+                </div>
+                <div class="question">
+                    <label>What were you trying to capture?</label>
+                    <textarea placeholder="The feeling, moment, or quality you wanted to hold onto..."></textarea>
+                </div>
+                <div class="question">
+                    <label>What do you see now that you look again?</label>
+                    <textarea placeholder="Something you notice now that you didn't in the moment..."></textarea>
+                </div>
+            </div>
+            <button class="btn">Save Entry</button>
+        </div>
+
+        <div class="timeline">
+            <h2>Past Entries</h2>
+
+            <div class="entry">
+                <div class="entry-image img-1">🌊</div>
+                <div class="entry-content">
+                    <div class="entry-date">Wednesday, February 5, 2026 · Toronto</div>
+                    <div class="entry-answer">
+                        <div class="q">What caught your eye?</div>
+                        <div class="a">The way the light was hitting the snow on the rooftops. Everything looked soft and quiet, like the city was holding its breath.</div>
+                    </div>
+                    <div class="entry-answer">
+                        <div class="q">What were you trying to capture?</div>
+                        <div class="a">That specific quality of winter light—blue-grey and diffused. The way it makes everything feel still.</div>
+                    </div>
+                    <div class="entry-answer">
+                        <div class="q">What do you see now?</div>
+                        <div class="a">The contrast between the warm light in the windows and the cold blue outside. I didn't notice that consciously when I took it.</div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">light</span>
+                        <span class="tag">winter</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="entry">
+                <div class="entry-image img-2">🍂</div>
+                <div class="entry-content">
+                    <div class="entry-date">Tuesday, February 4, 2026 · Home</div>
+                    <div class="entry-answer">
+                        <div class="q">What caught your eye?</div>
+                        <div class="a">My coffee cup casting a shadow across the desk. The morning sun was streaming in at just the right angle.</div>
+                    </div>
+                    <div class="entry-answer">
+                        <div class="q">What were you trying to capture?</div>
+                        <div class="a">A quiet moment before the day starts. The ritual of morning coffee, the pause before everything begins.</div>
+                    </div>
+                    <div class="entry-answer">
+                        <div class="q">What do you see now?</div>
+                        <div class="a">How cluttered my desk actually is. I was focused on the cup but there's so much else in frame I didn't register.</div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">morning</span>
+                        <span class="tag">ritual</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

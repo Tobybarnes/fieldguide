@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Log</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            min-height: 100vh;
+            background-color: #faf8f5;
+            color: #2d2d2d;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        header {
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid #e8e4df;
+            padding-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 1.25rem;
+            font-weight: normal;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .current-date {
+            font-size: 1.5rem;
+            font-weight: normal;
+        }
+
+        .editor {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 200px;
+            border: none;
+            font-family: 'Georgia', serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            resize: vertical;
+            color: #2d2d2d;
+        }
+
+        textarea:focus {
+            outline: none;
+        }
+
+        textarea::placeholder {
+            color: #bbb;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #f0ede8;
+        }
+
+        .word-count {
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        button {
+            background: #2d2d2d;
+            color: #fff;
+            border: none;
+            padding: 0.6rem 1.25rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #444;
+        }
+
+        .saved-indicator {
+            font-size: 0.85rem;
+            color: #4a9;
+        }
+
+        .past-entries {
+            margin-top: 3rem;
+        }
+
+        .past-entries h2 {
+            font-size: 0.9rem;
+            font-weight: normal;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 1.5rem;
+        }
+
+        .entry {
+            background: #fff;
+            border-radius: 8px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+            cursor: pointer;
+            transition: box-shadow 0.2s;
+        }
+
+        .entry:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .entry-date {
+            font-size: 0.85rem;
+            color: #999;
+            margin-bottom: 0.5rem;
+        }
+
+        .entry-preview {
+            color: #666;
+            font-size: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Daily Log</h1>
+            <div class="current-date" id="currentDate"></div>
+        </header>
+
+        <div class="editor">
+            <textarea id="entry" placeholder="What happened today? What are you thinking about?"></textarea>
+            <div class="actions">
+                <span class="word-count" id="wordCount">0 words</span>
+                <div>
+                    <span class="saved-indicator" id="savedIndicator"></span>
+                    <button onclick="saveEntry()">Save</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="past-entries">
+            <h2>Past Entries</h2>
+            <div id="entriesList"></div>
+        </div>
+    </div>
+
+    <script>
+        const entries = JSON.parse(localStorage.getItem('dailyLog') || '{}');
+        const today = new Date().toISOString().split('T')[0];
+
+        function formatDate(dateStr) {
+            const date = new Date(dateStr + 'T12:00:00');
+            return date.toLocaleDateString('en-US', {
+                weekday: 'long',
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric'
+            });
+        }
+
+        function init() {
+            document.getElementById('currentDate').textContent = formatDate(today);
+
+            if (entries[today]) {
+                document.getElementById('entry').value = entries[today];
+            }
+
+            updateWordCount();
+            renderPastEntries();
+        }
+
+        function updateWordCount() {
+            const text = document.getElementById('entry').value.trim();
+            const count = text ? text.split(/\s+/).length : 0;
+            document.getElementById('wordCount').textContent = count + ' word' + (count !== 1 ? 's' : '');
+        }
+
+        function saveEntry() {
+            const text = document.getElementById('entry').value.trim();
+            if (text) {
+                entries[today] = text;
+                localStorage.setItem('dailyLog', JSON.stringify(entries));
+                document.getElementById('savedIndicator').textContent = 'Saved ✓';
+                setTimeout(() => {
+                    document.getElementById('savedIndicator').textContent = '';
+                }, 2000);
+                renderPastEntries();
+            }
+        }
+
+        function renderPastEntries() {
+            const list = document.getElementById('entriesList');
+            const dates = Object.keys(entries).sort().reverse().filter(d => d !== today);
+
+            if (dates.length === 0) {
+                list.innerHTML = '<p style="color: #999; font-style: italic;">No past entries yet.</p>';
+                return;
+            }
+
+            list.innerHTML = dates.slice(0, 10).map(date => `
+                <div class="entry" onclick="loadEntry('${date}')">
+                    <div class="entry-date">${formatDate(date)}</div>
+                    <div class="entry-preview">${entries[date].substring(0, 150)}${entries[date].length > 150 ? '...' : ''}</div>
+                </div>
+            `).join('');
+        }
+
+        function loadEntry(date) {
+            alert('Entry from ' + formatDate(date) + ':\n\n' + entries[date]);
+        }
+
+        document.getElementById('entry').addEventListener('input', updateWordCount);
+        init();
+    </script>
+</body>
+</html>

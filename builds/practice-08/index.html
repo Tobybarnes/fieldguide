@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refine — Before & After</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+            background-color: #faf8f5;
+            color: #2d2d2d;
+            padding: 3rem 2rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 1.25rem;
+            font-weight: normal;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #999;
+            font-size: 1rem;
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .version {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+        }
+
+        .version-header {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #f0ede8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .version-label {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #666;
+        }
+
+        .version-tag {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            background: #f0ede8;
+            color: #888;
+        }
+
+        .version-tag.after {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .version-content {
+            padding: 1.5rem;
+        }
+
+        /* Mock link catcher UI */
+        .mock-form {
+            background: #f8f6f3;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .mock-input {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 0.5rem;
+            width: 100%;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        .mock-btn {
+            background: #2d2d2d;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .mock-links {
+            list-style: none;
+        }
+
+        .mock-link {
+            padding: 0.75rem;
+            border-bottom: 1px solid #f0ede8;
+        }
+
+        .mock-link:last-child {
+            border-bottom: none;
+        }
+
+        .mock-link-title {
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .mock-link-url {
+            font-size: 0.75rem;
+            color: #888;
+        }
+
+        /* After version improvements */
+        .after .mock-form {
+            background: linear-gradient(135deg, #f8f6f3 0%, #f0ede8 100%);
+        }
+
+        .after .mock-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mock-link-tags {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .mock-tag {
+            font-size: 0.65rem;
+            padding: 0.15rem 0.4rem;
+            border-radius: 10px;
+            background: #e8e4df;
+            color: #666;
+        }
+
+        .improvements {
+            background: #fff;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+        }
+
+        .improvements h2 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .improvement-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .improvement {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .improvement-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #d4edda;
+            color: #155724;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .improvement-text {
+            font-size: 0.9rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Practice 08: Refine</h1>
+            <p class="subtitle">Link Catcher — Version 1 → Version 2</p>
+        </header>
+
+        <div class="comparison">
+            <div class="version before">
+                <div class="version-header">
+                    <span class="version-label">Before</span>
+                    <span class="version-tag">v1.0</span>
+                </div>
+                <div class="version-content">
+                    <div class="mock-form">
+                        <div class="mock-input">Enter URL...</div>
+                        <div class="mock-input">Title...</div>
+                        <button class="mock-btn">Save</button>
+                    </div>
+                    <ul class="mock-links">
+                        <li class="mock-link">
+                            <div class="mock-link-title">Refactoring UI</div>
+                            <div class="mock-link-url">refactoringui.com</div>
+                        </li>
+                        <li class="mock-link">
+                            <div class="mock-link-title">Tailwind CSS</div>
+                            <div class="mock-link-url">tailwindcss.com</div>
+                        </li>
+                        <li class="mock-link">
+                            <div class="mock-link-title">Vercel Docs</div>
+                            <div class="mock-link-url">vercel.com/docs</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="version after">
+                <div class="version-header">
+                    <span class="version-label">After</span>
+                    <span class="version-tag after">v2.0</span>
+                </div>
+                <div class="version-content">
+                    <div class="mock-form">
+                        <div class="mock-input">🔗 Paste URL (auto-fetches title)</div>
+                        <div class="mock-input">Tags: design, tools, learning</div>
+                        <button class="mock-btn">Save (⌘+Enter)</button>
+                    </div>
+                    <ul class="mock-links">
+                        <li class="mock-link">
+                            <div>
+                                <div class="mock-link-title">Refactoring UI</div>
+                                <div class="mock-link-url">refactoringui.com</div>
+                            </div>
+                            <div class="mock-link-tags">
+                                <span class="mock-tag">design</span>
+                            </div>
+                        </li>
+                        <li class="mock-link">
+                            <div>
+                                <div class="mock-link-title">Tailwind CSS</div>
+                                <div class="mock-link-url">tailwindcss.com</div>
+                            </div>
+                            <div class="mock-link-tags">
+                                <span class="mock-tag">tools</span>
+                                <span class="mock-tag">code</span>
+                            </div>
+                        </li>
+                        <li class="mock-link">
+                            <div>
+                                <div class="mock-link-title">Vercel Docs</div>
+                                <div class="mock-link-url">vercel.com/docs</div>
+                            </div>
+                            <div class="mock-link-tags">
+                                <span class="mock-tag">docs</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="improvements">
+            <h2>What Changed</h2>
+            <div class="improvement-list">
+                <div class="improvement">
+                    <div class="improvement-icon">✓</div>
+                    <div class="improvement-text">Auto-fetch page titles from URLs</div>
+                </div>
+                <div class="improvement">
+                    <div class="improvement-icon">✓</div>
+                    <div class="improvement-text">Keyboard shortcut for quick save</div>
+                </div>
+                <div class="improvement">
+                    <div class="improvement-icon">✓</div>
+                    <div class="improvement-text">Tags visible in list view</div>
+                </div>
+                <div class="improvement">
+                    <div class="improvement-icon">✓</div>
+                    <div class="improvement-text">Refined spacing and visual hierarchy</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
