@@ -15,14 +15,16 @@ interface MCP {
 const mcps: MCP[] = [
   {
     name: 'Google Workspace',
-    description: 'Access your Gmail, Google Calendar, and Google Drive from Claude.',
+    description: 'Access your Gmail, Google Calendar, and Google Drive from Claude. This is the MCP we recommend everyone start with.',
     useCase: [
-      'Ask "What\'s on my calendar today?"',
+      'Ask "What\'s on my calendar today?" and get a real answer',
       'Find that email from Sarah about the project',
       'Summarize the documents in my Work folder',
       'Draft emails without leaving your conversation',
+      'When am I free on Thursday afternoon?',
+      'Add a 30-minute call with Sarah tomorrow at 3pm',
     ],
-    setup: 'Requires Google OAuth authentication. Works with any Google account.',
+    setup: 'Requires Google OAuth authentication. Works with any Google account. Start with just Calendar—it\'s the safest and most immediately useful.',
     prompt: 'Help me set up the Google Workspace MCP. I want to be able to access my Gmail and Google Calendar from Claude.',
   },
   {
@@ -145,6 +147,33 @@ export default function MCPsPage() {
         </div>
       </div>
 
+      {/* Google Workspace Setup Guide */}
+      <div className="mb-12 bg-[var(--c-black)]/5 p-6 rounded-sm">
+        <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-4">Setting Up Google Workspace MCP</h2>
+        <p className="text-[var(--c-black)]/70 mb-4">
+          We assume everyone following this course will set up Google Workspace MCP. It&apos;s the foundation that makes everything else more powerful.
+        </p>
+        <ol className="space-y-3 text-sm text-[var(--c-black)]/70 mb-4">
+          <li className="flex items-start gap-3">
+            <span className="text-xs text-[var(--c-black)]/40 w-5 pt-0.5">1.</span>
+            <span><strong>Get Claude Code</strong> or another MCP-compatible client</span>
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="text-xs text-[var(--c-black)]/40 w-5 pt-0.5">2.</span>
+            <span><strong>Add Google Workspace MCP</strong> to your configuration</span>
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="text-xs text-[var(--c-black)]/40 w-5 pt-0.5">3.</span>
+            <span><strong>Authenticate with Google</strong> when prompted</span>
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="text-xs text-[var(--c-black)]/40 w-5 pt-0.5">4.</span>
+            <span><strong>Test it</strong> by asking &ldquo;What&apos;s on my calendar today?&rdquo;</span>
+          </li>
+        </ol>
+        <CopyablePrompt prompt="What's on my calendar today?" />
+      </div>
+
       {/* MCP List */}
       <div className="mb-12">
         <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-6">Personal MCPs Worth Setting Up</h2>
@@ -202,8 +231,28 @@ export default function MCPsPage() {
           </li>
         </ol>
         <p className="text-sm text-[var(--c-black)]/50 mt-4 italic">
-          Start with one. Get comfortable. Add more as needed.
+          Start with Google Workspace. Get comfortable with one MCP before adding more.
         </p>
+      </div>
+
+      {/* Using Google Throughout Course */}
+      <div className="mb-12 border-l-2 border-[var(--c-black)]/20 pl-6">
+        <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-4">Using Google Workspace Throughout This Course</h2>
+        <p className="text-[var(--c-black)]/70 mb-4">Many practices become more powerful with Google Workspace connected:</p>
+        <ul className="space-y-2 text-sm text-[var(--c-black)]/70">
+          <li className="flex items-start gap-2">
+            <span className="text-[var(--c-black)]/30">-</span>
+            <span><strong>Practice 03 (Remember)</strong>: Ask &ldquo;What meetings did I have yesterday?&rdquo; before journaling</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-[var(--c-black)]/30">-</span>
+            <span><strong>Practice 07 (Gather)</strong>: Your dashboard can show real calendar events</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-[var(--c-black)]/30">-</span>
+            <span><strong>Practice 08 (Refine)</strong>: Search emails for context on features to improve</span>
+          </li>
+        </ul>
       </div>
 
       {/* Security */}
