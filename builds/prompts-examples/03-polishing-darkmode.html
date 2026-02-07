@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App - Dark Mode</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --bg: #faf9f6;
+            --card-bg: white;
+            --text: #1a1a1a;
+            --text-muted: #999;
+            --border: #e0e0e0;
+            --btn-bg: #1a1a1a;
+            --btn-text: white;
+        }
+        [data-theme="dark"] {
+            --bg: #1a1a1a;
+            --card-bg: #2a2a2a;
+            --text: #f0f0f0;
+            --text-muted: #888;
+            --border: #3a3a3a;
+            --btn-bg: #f0f0f0;
+            --btn-text: #1a1a1a;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 40px 20px;
+            transition: background 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: 500;
+        }
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        .theme-toggle button {
+            width: 48px;
+            height: 26px;
+            border-radius: 13px;
+            background: var(--border);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            transition: background 0.3s;
+        }
+        .theme-toggle button::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            transition: transform 0.3s;
+        }
+        [data-theme="dark"] .theme-toggle button::after {
+            transform: translateX(22px);
+        }
+        [data-theme="dark"] .theme-toggle button {
+            background: #4a9eff;
+        }
+        .add-form {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 14px;
+            background: var(--card-bg);
+            color: var(--text);
+            transition: background 0.3s, border-color 0.3s, color 0.3s;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--text);
+        }
+        input[type="text"]::placeholder {
+            color: var(--text-muted);
+        }
+        .add-btn {
+            padding: 12px 24px;
+            background: var(--btn-bg);
+            color: var(--btn-text);
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+        .add-btn:hover {
+            opacity: 0.9;
+        }
+        .todo-list {
+            list-style: none;
+        }
+        .todo-item {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            margin-bottom: 8px;
+            transition: background 0.3s, border-color 0.3s;
+        }
+        .todo-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-right: 12px;
+            cursor: pointer;
+            accent-color: var(--text);
+        }
+        .todo-item.completed span {
+            text-decoration: line-through;
+            color: var(--text-muted);
+        }
+        .todo-item span {
+            flex: 1;
+            font-size: 14px;
+        }
+        .delete-btn {
+            padding: 6px 12px;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 12px;
+            border: none;
+            cursor: pointer;
+        }
+        .delete-btn:hover {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>My Todos</h1>
+            <div class="theme-toggle">
+                <span>Dark</span>
+                <button onclick="toggleTheme()" aria-label="Toggle dark mode"></button>
+            </div>
+        </header>
+
+        <div class="add-form">
+            <input type="text" id="todoInput" placeholder="Add a new task...">
+            <button class="add-btn" onclick="addTodo()">Add</button>
+        </div>
+
+        <ul class="todo-list" id="todoList">
+            <li class="todo-item">
+                <input type="checkbox" onchange="toggleTodo(this)">
+                <span>Learn to build with Claude</span>
+                <button class="delete-btn" onclick="deleteTodo(this)">Delete</button>
+            </li>
+            <li class="todo-item">
+                <input type="checkbox" onchange="toggleTodo(this)">
+                <span>Create my first web app</span>
+                <button class="delete-btn" onclick="deleteTodo(this)">Delete</button>
+            </li>
+            <li class="todo-item completed">
+                <input type="checkbox" checked onchange="toggleTodo(this)">
+                <span>Add dark mode toggle</span>
+                <button class="delete-btn" onclick="deleteTodo(this)">Delete</button>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+
+        function toggleTheme() {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        function addTodo() {
+            const input = document.getElementById('todoInput');
+            const text = input.value.trim();
+            if (!text) return;
+
+            const list = document.getElementById('todoList');
+            const li = document.createElement('li');
+            li.className = 'todo-item';
+            li.innerHTML = `
+                <input type="checkbox" onchange="toggleTodo(this)">
+                <span>${text}</span>
+                <button class="delete-btn" onclick="deleteTodo(this)">Delete</button>
+            `;
+            list.appendChild(li);
+            input.value = '';
+        }
+
+        function toggleTodo(checkbox) {
+            checkbox.parentElement.classList.toggle('completed', checkbox.checked);
+        }
+
+        function deleteTodo(btn) {
+            btn.parentElement.remove();
+        }
+
+        document.getElementById('todoInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') addTodo();
+        });
+    </script>
+</body>
+</html>

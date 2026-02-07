@@ -4,6 +4,15 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { ScrambleText } from '../../components/ScrambleText';
 
+const categoryExamples: Record<string, { image: string; caption: string } | null> = {
+  beginning: { image: '/screenshots/prompts/01-beginning-todo.png', caption: 'A simple todo app built with "Basic CRUD app" prompt' },
+  expanding: { image: '/screenshots/prompts/02-expanding-search-active.png', caption: 'The same app with search added using "Add search" prompt' },
+  fixing: null,
+  polishing: { image: '/screenshots/prompts/03-polishing-dark.png', caption: 'Dark mode added with "Add dark mode" prompt' },
+  releasing: null,
+  maintaining: null,
+};
+
 const prompts = {
   beginning: [
     { title: 'Start a web app', prompt: 'Build me a [type] web app that [does what]. Keep it simple—just HTML, CSS, and JavaScript in a single file.' },
@@ -108,6 +117,19 @@ export default function PromptsPage() {
           </button>
         ))}
       </div>
+
+      {/* Example Preview */}
+      {categoryExamples[activeCategory] && (
+        <div className="mb-8 p-4 bg-[var(--c-black)]/5 rounded-sm">
+          <div className="text-xs uppercase tracking-widest text-[var(--c-black)]/40 mb-3">Example Result</div>
+          <img
+            src={categoryExamples[activeCategory]!.image}
+            alt={categoryExamples[activeCategory]!.caption}
+            className="w-full rounded-sm border border-[var(--c-black)]/10 shadow-sm mb-2"
+          />
+          <p className="text-xs text-[var(--c-black)]/50 italic">{categoryExamples[activeCategory]!.caption}</p>
+        </div>
+      )}
 
       {/* Prompts */}
       <div className="space-y-4">
