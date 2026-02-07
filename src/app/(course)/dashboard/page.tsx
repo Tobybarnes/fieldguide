@@ -38,6 +38,29 @@ export default function Dashboard() {
         </p>
       </div>
 
+      {/* Getting Started Callout */}
+      <div className="bg-[var(--c-black)] text-white p-6 mb-8">
+        <h3 className="font-medium mb-2">First time here?</h3>
+        <p className="text-sm text-white/70 mb-4">
+          Start with the 4 foundation guides, then set up your Google Workspace MCP.
+          Once connected, you can ask Claude about your calendar and email directly.
+        </p>
+        <div className="flex gap-4">
+          <Link
+            href="/guide/before-you-begin"
+            className="text-xs font-semibold px-4 py-2 bg-white text-[var(--c-black)] hover:bg-white/90 transition-colors"
+          >
+            Start Guide 01
+          </Link>
+          <Link
+            href="/resources/mcps"
+            className="text-xs font-semibold px-4 py-2 border border-white/50 text-white hover:bg-white/10 transition-colors"
+          >
+            Set Up MCPs
+          </Link>
+        </div>
+      </div>
+
       {/* Progress Overview */}
       <div className="border border-[var(--c-black)]/10 p-6 mb-12">
         <div className="flex justify-between items-center mb-4">
@@ -116,18 +139,18 @@ export default function Dashboard() {
             <div className="text-xs text-[var(--c-black)]/60">Glossary</div>
           </Link>
           <Link
-            href="/resources/cheatsheet"
+            href="/resources/mcps"
             className="border border-[var(--c-black)]/10 p-4 text-center hover:border-[var(--c-black)]/30 transition-colors"
           >
-            <div className="text-2xl mb-2">1pg</div>
-            <div className="text-xs text-[var(--c-black)]/60">Cheat Sheet</div>
+            <div className="text-2xl mb-2">MCP</div>
+            <div className="text-xs text-[var(--c-black)]/60">Integrations</div>
           </Link>
           <Link
-            href="/community"
+            href="/resources/links"
             className="border border-[var(--c-black)]/10 p-4 text-center hover:border-[var(--c-black)]/30 transition-colors"
           >
             <div className="text-2xl mb-2">→</div>
-            <div className="text-xs text-[var(--c-black)]/60">Discord</div>
+            <div className="text-xs text-[var(--c-black)]/60">Useful Links</div>
           </Link>
         </div>
       </section>

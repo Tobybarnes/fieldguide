@@ -188,7 +188,7 @@ export default function Home() {
                   { num: '01', title: '4 Foundation Guides', desc: 'Before You Begin, Setting Up, The Loop, and Shipping. Everything you need to go from zero to deployed.' },
                   { num: '02', title: '9 Practices', desc: 'Hands-on projects from a personal page to a full dashboard. Each one teaches a different way of thinking.' },
                   { num: '03', title: '50+ Prompts', desc: 'A library of prompts for starting, expanding, fixing, polishing, and maintaining your tools.' },
-                  { num: '04', title: 'Resources', desc: 'Glossary, troubleshooting guide, and cheat sheets. Plain language, no jargon.' },
+                  { num: '04', title: 'Resources', desc: 'Glossary, useful links, MCP setup guides, and troubleshooting. Plain language, no jargon.' },
                 ].map((item, i) => (
                   <motion.div
                     key={item.num}
@@ -223,7 +223,7 @@ export default function Home() {
 
               <div className="space-y-0">
                 {[
-                  { num: '01', title: 'Start Here', build: 'Personal Page' },
+                  { num: '01', title: 'Starting', build: 'Personal Page' },
                   { num: '02', title: 'Capture', build: 'Link Catcher' },
                   { num: '03', title: 'Remember', build: 'Daily Log' },
                   { num: '04', title: 'Move', build: 'Training Log' },
@@ -332,7 +332,7 @@ export default function Home() {
                   },
                   {
                     q: "What do I need to get started?",
-                    a: "A Claude Pro subscription ($20/month), a text editor (free), and a willingness to tinker. That's it."
+                    a: "A Claude Pro subscription ($20/month), a text editor (free), and a Google account for the MCP integration. The guide walks you through connecting Claude to your calendar and email."
                   },
                   {
                     q: "How is this different from other AI courses?",
