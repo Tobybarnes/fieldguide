@@ -66,6 +66,26 @@ See your collection at a glance.
 Show me stats: total records, breakdown by format, by decade, most common artist.
 ```
 
+### 07. Connect to Discogs API
+
+Stop typing everything manually. Discogs has a massive database of music releases—use it.
+
+```prompt
+Add Discogs API integration. Let me search for a record by artist and title, show matching results from Discogs, and when I click one, auto-fill all the fields (artist, album, year, format, label, catalog number). Include the Discogs cover image. I'll need to add my Discogs API token.
+```
+
+> **Tip:** Get a free Discogs API token at discogs.com/settings/developers. You don't need to create an "app"—just generate a personal token.
+
+### 08. Add barcode scanning
+
+Even faster than searching. Scan the barcode on the record and let Discogs identify it.
+
+```prompt
+Add barcode scanning using the device camera. When I scan a barcode, search Discogs for that barcode and auto-fill the record details if found. Show a "not found" message if the barcode isn't in the database.
+```
+
+> **Tip:** This requires camera access and works best on mobile. The barcode is usually on the back of the sleeve or on a sticker.
+
 ## Additional Prompts
 
 ### Random pick
@@ -98,6 +118,24 @@ When you want to track specific pressings.
 Add Discogs-style catalog numbers
 ```
 
+### Discogs collection sync
+When you already have a Discogs collection.
+```prompt
+Add an import feature that pulls my existing collection from Discogs. Use my Discogs username to fetch all releases in my collection and add them to my local catalog.
+```
+
+### Price lookup
+When you're curious what your records are worth.
+```prompt
+For each record, show the current median price from Discogs marketplace. Add a "collection value" total to my stats.
+```
+
+### Release variants
+When you want to track which exact pressing you have.
+```prompt
+When I search Discogs, show different pressings/variants of the same album (country, year, label). Let me pick the exact one I own.
+```
+
 ## Troubleshooting
 
 ### Images make the app slow
@@ -112,6 +150,18 @@ localStorage has ~5MB limit. Export and clear old data, or ask about IndexedDB.
 ### Grid layout looks uneven
 Ask Claude to "make all album covers the same size with consistent spacing"
 
+### Discogs API returns "401 Unauthorized"
+Your API token is wrong or expired. Go to discogs.com/settings/developers and generate a new personal access token.
+
+### Discogs search returns too many results
+Be more specific. Include artist AND album title. Or use the release year to narrow it down.
+
+### Barcode not found in Discogs
+Not every release has a barcode in their database. Try searching by artist/title instead, or add it manually.
+
+### CORS errors with Discogs API
+You're probably running locally. Either use a proxy server, or ask Claude to add a simple backend to handle the API requests.
+
 ## Reflection
 
 - Does cataloging change how you see your collection?
@@ -121,8 +171,10 @@ Ask Claude to "make all album covers the same size with consistent spacing"
 
 ## Extensions
 
-- Barcode scanning to add items (requires camera access)
-- Integration with Discogs API for auto-fill
-- Value tracking (prices, trends)
-- Lending tracker (who has your stuff)
-- Print labels for physical organization
+- Two-way Discogs sync (changes in your app update Discogs and vice versa)
+- Price history charts (track value changes over time)
+- Lending tracker (who has your stuff and for how long)
+- Print labels for physical organization (spines, dividers)
+- Audio fingerprinting to identify unlabeled records
+- Export to CSV for spreadsheet analysis
+- Integration with Last.fm to auto-track plays

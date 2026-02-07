@@ -132,6 +132,14 @@ export function Navigation({ mobile = false }: { mobile?: boolean }) {
             >
               Useful Links
             </Link>
+            <Link
+              href="/resources/mcps"
+              className={`block py-1.5 text-sm transition-colors ${
+                pathname === '/resources/mcps' ? 'text-white' : 'text-white/60 hover:text-white'
+              }`}
+            >
+              Using MCPs
+            </Link>
           </nav>
         </div>
       </div>
