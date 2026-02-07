@@ -124,6 +124,14 @@ export function Navigation({ mobile = false }: { mobile?: boolean }) {
             >
               Glossary
             </Link>
+            <Link
+              href="/resources/links"
+              className={`block py-1.5 text-sm transition-colors ${
+                pathname === '/resources/links' ? 'text-white' : 'text-white/60 hover:text-white'
+              }`}
+            >
+              Useful Links
+            </Link>
           </nav>
         </div>
       </div>

@@ -10,6 +10,8 @@ interface Step {
   description: string;
   prompt?: string;
   tip?: string;
+  image?: string;
+  imageAlt?: string;
 }
 
 interface AdditionalPrompt {
@@ -30,6 +32,8 @@ interface Practice {
   principle: string;
   overview: string;
   whatYoullBuild?: string;
+  heroImage?: string;
+  heroImageAlt?: string;
   steps: Step[];
   prompts?: AdditionalPrompt[];
   troubleshooting?: TroubleshootingItem[];
@@ -56,6 +60,8 @@ const practices: Record<string, Practice> = {
         title: 'Save and open it',
         description: 'Copy the code into a file called index.html. Double-click it to open in your browser.',
         tip: 'If you see raw code instead of a page, make sure the file ends in .html not .txt.',
+        image: '/screenshots/practice-01-starting/01-initial.png',
+        imageAlt: 'Initial personal page - clean and minimal',
       },
       {
         title: 'Look at it. Really look.',
@@ -66,10 +72,14 @@ const practices: Record<string, Practice> = {
         description: 'Make one request at a time. See the result. Then ask for the next thing.',
         prompt: 'Change the background to a warm off-white color and make the text a dark charcoal instead of pure black.',
         tip: 'Make one request at a time. See the result. Then ask for the next thing.',
+        image: '/screenshots/practice-01-starting/02-warm-colors.png',
+        imageAlt: 'After changing to warm colors - softer, easier on the eyes',
       },
       {
         title: 'Make it yours',
         description: 'Change the fonts. Adjust the spacing. Add a photo. Remove things that feel unnecessary. Keep going until it feels like yours.',
+        image: '/screenshots/practice-01-starting/03-polished.png',
+        imageAlt: 'Polished version - contained card with avatar and refined typography',
       },
       {
         title: 'Save a copy',
@@ -142,6 +152,8 @@ const practices: Record<string, Practice> = {
         description: 'Ask Claude for a simple link-saving app. Don\'t ask for tags or search yet—start with the core.',
         prompt: 'Build me a single-page web app for saving links. I want to paste a URL, add a title and optional notes, then see all my saved links in a list below the form. Use HTML, CSS, and vanilla JavaScript. Store links in localStorage so they persist.',
         tip: 'Start simple. You can always add more later. The first version should do one thing well.',
+        image: '/screenshots/practice-02-capture/01-basic.png',
+        imageAlt: 'Basic link catcher - URL, title, notes, and a save button',
       },
       {
         title: 'Test and observe',
@@ -163,6 +175,8 @@ const practices: Record<string, Practice> = {
         description: 'Know when you saved something. Remove what you don\'t need.',
         prompt: 'Show the date each link was saved, formatted like "Jan 15, 2024". Add a delete button for each link. When I click delete, show a confirmation before removing it.',
         tip: 'If the date format isn\'t what you want, just tell Claude: "Format dates like \'2 days ago\' instead" or "Just show the month and day".',
+        image: '/screenshots/practice-02-capture/02-with-tags.png',
+        imageAlt: 'Link catcher with tags and search - filter by tag, search in real-time',
       },
       {
         title: 'Make it yours',
@@ -246,6 +260,8 @@ const practices: Record<string, Practice> = {
         description: 'Ask Claude for a simple daily journal. Don\'t ask for search or export yet—just the basics.',
         prompt: 'Build me a daily journal web app. I want a text area where I can write today\'s entry, a save button, and a list of past entries below showing the date and content. Use localStorage to save entries. Each entry should be tied to a specific date.',
         tip: 'Don\'t ask for search or export yet. Just the basics.',
+        image: '/screenshots/practice-03-remember/01-daily-log.png',
+        imageAlt: 'Basic daily log - text area with save button and past entries',
       },
       {
         title: 'Write your first entry',
@@ -261,6 +277,8 @@ const practices: Record<string, Practice> = {
         title: 'Add a calendar view',
         description: 'See at a glance which days have entries.',
         prompt: 'Add a small monthly calendar that shows which days have entries (maybe with a dot). Let me click a date to jump to that entry.',
+        image: '/screenshots/practice-03-remember/02-with-calendar.png',
+        imageAlt: 'Daily log with calendar view - dots showing days with entries',
       },
       {
         title: 'Add search',
@@ -341,6 +359,8 @@ const practices: Record<string, Practice> = {
         description: 'Start with logging exercises, sets, reps, and weight.',
         prompt: 'Build me a workout tracker. I want to log exercises with: exercise name, sets, reps, weight, and a notes field. Save each workout with the date. Show a list of recent workouts. Use localStorage.',
         tip: 'Start with your actual workout. What do you actually track?',
+        image: '/screenshots/practice-04-move/01-training-log.png',
+        imageAlt: 'Training log - exercise form with recent workouts list',
       },
       {
         title: 'Log a real workout',
@@ -441,6 +461,8 @@ const practices: Record<string, Practice> = {
         description: 'Tell Claude what you collect and what you want to track about each item.',
         prompt: 'Build me a vinyl record catalog. For each record I want to track: artist, album title, year, format (LP/EP/7"), condition, and notes. Show all records in a grid with album art. Store in localStorage.',
         tip: 'Change the fields to match what YOU collect. Books? Tools? Sneakers? Make it yours.',
+        image: '/screenshots/practice-05-collect/01-record-shelf.png',
+        imageAlt: 'Record shelf - grid of album covers with details',
       },
       {
         title: 'Add your first items',
@@ -540,6 +562,8 @@ const practices: Record<string, Practice> = {
         description: 'Create the photo log with the three essential questions.',
         prompt: 'Build me a photo log. I upload one image and answer three questions: "What caught your eye?", "What were you trying to capture?", "What do you see now that you look again?". Save each entry with the date and display as a vertical timeline.',
         tip: 'These specific questions are the point. Don\'t skip them.',
+        image: '/screenshots/practice-06-see/01-photo-log.png',
+        imageAlt: 'Photo log - image with three reflection questions',
       },
       {
         title: 'Add your first entry',
@@ -633,6 +657,8 @@ const practices: Record<string, Practice> = {
         description: 'Begin with time, date, and a greeting.',
         prompt: 'Build me a personal dashboard. Show current time, today\'s date, and a greeting based on time of day (good morning/afternoon/evening). Clean, minimal design with lots of whitespace.',
         tip: 'Start simple. You can add widgets one at a time.',
+        image: '/screenshots/practice-07-gather/01-dashboard.png',
+        imageAlt: 'Personal dashboard - time, weather, quote, todos, and links',
       },
       {
         title: 'Add weather',
@@ -744,6 +770,8 @@ const practices: Record<string, Practice> = {
         description: 'One change, one test, one commit. Don\'t try to fix everything at once.',
         prompt: '[Describe the specific issue] Fix this by [your proposed solution].',
         tip: 'One change, one test, one commit. Don\'t try to fix everything at once.',
+        image: '/screenshots/practice-08-refine/01-before-after.png',
+        imageAlt: 'Before and after - showing iteration and improvement',
       },
       {
         title: 'Test your changes',
@@ -819,6 +847,8 @@ const practices: Record<string, Practice> = {
     principle: 'You don\'t need permission',
     overview: 'Everything until now has been guided. This is you on your own. Build something only you would build. A tool for a problem only you have. The weird idea that doesn\'t fit any category. This is the point of everything—not to follow tutorials forever, but to make things that matter to you.',
     whatYoullBuild: 'Whatever you want. No requirements. No templates. Just you and Claude.',
+    heroImage: '/screenshots/practice-09-make-your-own/01-blank-canvas.png',
+    heroImageAlt: 'A blank canvas - what will you build?',
     steps: [
       {
         title: 'What do you wish existed?',
@@ -936,6 +966,18 @@ export default function PracticePage() {
         <div className="mb-12 bg-[var(--c-black)]/5 p-6 rounded-sm">
           <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-4">What You'll Build</h2>
           <p className="text-[var(--c-black)]/80 leading-relaxed">{practice.whatYoullBuild}</p>
+          {practice.heroImage && (
+            <div className="mt-6">
+              <img
+                src={practice.heroImage}
+                alt={practice.heroImageAlt || `Preview of ${practice.build}`}
+                className="w-full rounded-sm border border-[var(--c-black)]/20 shadow-sm"
+              />
+              {practice.heroImageAlt && (
+                <p className="text-xs text-[var(--c-black)]/40 mt-2 italic">{practice.heroImageAlt}</p>
+              )}
+            </div>
+          )}
         </div>
       )}
 
@@ -961,6 +1003,18 @@ export default function PracticePage() {
                 {step.tip && (
                   <div className="text-sm text-[var(--c-black)]/60 italic bg-[var(--c-black)]/5 p-3 rounded-sm">
                     <span className="font-medium not-italic">Tip:</span> {step.tip}
+                  </div>
+                )}
+                {step.image && (
+                  <div className="mt-4">
+                    <img
+                      src={step.image}
+                      alt={step.imageAlt || `Screenshot for step ${i + 1}`}
+                      className="w-full rounded-sm border border-[var(--c-black)]/10 shadow-sm"
+                    />
+                    {step.imageAlt && (
+                      <p className="text-xs text-[var(--c-black)]/40 mt-2 italic">{step.imageAlt}</p>
+                    )}
                   </div>
                 )}
               </div>
