@@ -70,7 +70,7 @@ const sections: LinkSection[] = [
 
 export default function LinksPage() {
   return (
-    <div className="p-8 lg:p-12 max-w-2xl">
+    <div className="p-8 lg:pl-48 lg:pr-12 lg:py-12 max-w-2xl">
       {/* Breadcrumb */}
       <div className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-8">
         <Link href="/dashboard" className="hover:text-[var(--c-black)]">Dashboard</Link>

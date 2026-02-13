@@ -42,7 +42,7 @@ export function Navigation({ mobile = false }: { mobile?: boolean }) {
   }
 
   return (
-    <aside className="relative z-10 h-full p-8 flex flex-col justify-between text-white">
+    <aside className="relative z-10 h-full pl-12 pr-8 py-8 flex flex-col justify-between text-white">
       <div>
         {/* Home Link */}
         <Link

@@ -31,33 +31,33 @@ const terms: Term[] = [
 
 export default function GlossaryPage() {
   return (
-    <div className="p-8 lg:p-12 max-w-2xl">
+    <div className="p-12 lg:pl-48 lg:pr-20 lg:py-20 max-w-2xl">
       {/* Breadcrumb */}
-      <div className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-8">
+      <div className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-16">
         <Link href="/dashboard" className="hover:text-[var(--c-black)]">Dashboard</Link>
         <span className="mx-2">/</span>
         <span>Glossary</span>
       </div>
 
       {/* Header */}
-      <div className="mb-12">
-        <div className="text-xs text-[var(--c-black)]/40 mb-2">
+      <div className="mb-20">
+        <div className="text-xs text-[var(--c-black)]/40 mb-3">
           <ScrambleText text="A-Z Reference" scrambleOnHover />
         </div>
         <h1 className="text-3xl lg:text-4xl font-normal tracking-tight mb-4">
           Glossary
         </h1>
-        <p className="text-[var(--c-black)]/60">
+        <p className="text-[var(--c-black)]/60 text-lg leading-relaxed">
           Plain-language definitions for terms you&apos;ll encounter.
         </p>
       </div>
 
       {/* Terms */}
-      <div className="space-y-6">
+      <div className="space-y-8">
         {terms.map((item) => (
-          <div key={item.term} className="border-b border-[var(--c-black)]/10 pb-6">
-            <h3 className="font-medium mb-2">{item.term}</h3>
-            <p className="text-sm text-[var(--c-black)]/70">
+          <div key={item.term} className="border-b border-[var(--c-black)]/10 pb-8">
+            <h3 className="font-medium text-lg mb-3">{item.term}</h3>
+            <p className="text-[var(--c-black)]/70 leading-loose">
               {item.definition}
               {item.link && (
                 <>

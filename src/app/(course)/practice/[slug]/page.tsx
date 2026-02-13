@@ -2,6 +2,7 @@
 
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 import { ScrambleText } from '../../../components/ScrambleText';
 import { CopyablePrompt } from '../../../components/CopyablePrompt';
 
@@ -31,6 +32,7 @@ interface Practice {
   build: string;
   principle: string;
   overview: string;
+  beforeYouStart?: string;
   whatYoullBuild?: string;
   heroImage?: string;
   heroImageAlt?: string;
@@ -48,6 +50,7 @@ const practices: Record<string, Practice> = {
     build: 'Personal Page',
     principle: 'Start before you\'re ready',
     overview: 'This is your first build. No frameworks, no complexity—just one HTML file that becomes a page about you. The goal isn\'t perfection. The goal is to see that you can describe something and have it exist. That\'s the magic we\'re after. Don\'t overthink it. Just start.',
+    beforeYouStart: 'You\'ve been meaning to have a personal page. Something simple. Just your name, what you do, how to reach you. But every option feels like too much: WordPress is overkill, Linktree feels generic, and coding from scratch seems impossible. This practice proves you can make something in the next 20 minutes that\'s entirely yours.',
     whatYoullBuild: 'A single-page personal website with your name, a short bio, and links to your email and social profiles. One file. No hosting yet. Just something real.',
     steps: [
       {
@@ -145,6 +148,7 @@ const practices: Record<string, Practice> = {
     build: 'Link Catcher',
     principle: 'Don\'t let things slip away',
     overview: 'Tabs pile up. Bookmarks become graveyards. Pocket\'s recommendations drown your actual interests. This is your own link database. No algorithm, no suggestions, just what you saved.',
+    beforeYouStart: 'Right now you have 47 browser tabs open. 12 are "to read later." You\'ll never read them. You also have 600+ bookmarks organized into folders you never look at. The friction isn\'t remembering to save things—it\'s that the tools for saving are either too simple (bookmarks) or too complex (Notion databases). You need something in between.',
     whatYoullBuild: 'A simple web app where you can paste a URL and give it a title, add notes and tags, see all your saved links in a list, filter by tag or search, and delete links you no longer need.',
     steps: [
       {
@@ -253,6 +257,7 @@ const practices: Record<string, Practice> = {
     build: 'Daily Log',
     principle: 'Write it down or lose it',
     overview: 'Your brain isn\'t a storage device—it\'s a processor. The things that matter need to live somewhere outside your head. This is a simple daily journal: text and timestamps, nothing else. No prompts asking how you feel on a scale of 1-10. No streaks. Just a place to dump thoughts at the end of each day.',
+    beforeYouStart: 'You keep meaning to journal. You\'ve tried apps: Day One feels precious, Notion feels like work, Apple Notes disappears into chaos. You don\'t need guided prompts or mood tracking. You just need a text box that saves what you write with today\'s date. Something that gets out of the way and lets you think.',
     whatYoullBuild: 'A daily log where you write an entry, it saves with today\'s date, and you can browse back through past entries. Everything stored locally on your computer.',
     steps: [
       {
@@ -352,6 +357,7 @@ const practices: Record<string, Practice> = {
     build: 'Training Log',
     principle: 'The body keeps the score',
     overview: 'Every fitness app wants to own your data, show you ads, or gamify your workouts with badges you didn\'t ask for. This is simpler: log what you did, note how it felt, see your history. Your workout data belongs to you.',
+    beforeYouStart: 'You track your workouts in Notes or a notebook. After a few months, you can\'t remember what weight you used last time. Fitness apps are too much—social feeds, achievement badges, calorie counting you don\'t care about. You just want to log sets and reps, see your last workout, and know if you\'re getting stronger. That\'s it.',
     whatYoullBuild: 'A workout tracker where you log exercises with sets, reps, and weight. Add notes about how you felt. See your history. No calorie counting, no social features, no streaks.',
     steps: [
       {
@@ -454,6 +460,7 @@ const practices: Record<string, Practice> = {
     build: 'Record Shelf',
     principle: 'Physical things deserve digital memory',
     overview: 'Collections matter. Whether it\'s vinyl, books, tools, plants, or anything else—the things we accumulate tell a story. But physical collections are hard to browse when you\'re not home, and easy to forget about. This is your catalog. Not a marketplace, not a social app—just a record of what you have.',
+    beforeYouStart: 'You\'re at a record store and can\'t remember if you already own this album. Or you\'re online shopping and buy a book you already have. Your collection lives in your apartment, but you\'re not always there. Apps like Discogs are databases for buying/selling, not for personal cataloging. You need a simple catalog—just your stuff, with notes only you care about.',
     whatYoullBuild: 'A catalog for your collection (we\'ll use vinyl records, but adapt to whatever you collect). Add items with key details, photos, notes. Browse and search. Track what you want but don\'t have yet.',
     steps: [
       {
@@ -600,6 +607,7 @@ const practices: Record<string, Practice> = {
     build: 'Photo Log',
     principle: 'Seeing is a practice',
     overview: 'This isn\'t a photo gallery—it\'s a seeing practice. One image at a time. Three questions that slow you down. The point isn\'t to collect photos, it\'s to notice what you notice. Photography is attention made visible; this tool makes that attention explicit.',
+    beforeYouStart: 'Your camera roll has 8,000 photos. You scroll past them but never really look. Instagram wants you to post, not reflect. Google Photos organizes by date but not by meaning. You take photos to remember how things looked, but you never look at them in a way that helps you see what you were actually noticing. This isn\'t another photo app. It\'s a seeing journal.',
     whatYoullBuild: 'A photo journal where you upload one image and answer three questions about it. A practice of slowing down and really looking at what you captured.',
     steps: [
       {
@@ -695,6 +703,7 @@ const practices: Record<string, Practice> = {
     build: 'Personal Dashboard',
     principle: 'Bring scattered things together',
     overview: 'Every morning you check the weather, your calendar, your tasks, maybe a quote or news feed. That\'s five tabs, five apps, five moments of friction. A dashboard brings what matters into one view. This is your home screen—curated by you, for you.',
+    beforeYouStart: 'Every morning: open weather app, check calendar, look at todo list, maybe visit a news site. Five different places just to orient yourself for the day. Your browser\'s new tab page shows Google or blank white. All that scattered information could live in one place you actually want to see. Not someone else\'s dashboard—yours.',
     whatYoullBuild: 'A personal dashboard with widgets for weather, time, a daily quote, your todo list, and whatever else you want to see at a glance. Make it your browser\'s new tab page.',
     steps: [
       {
@@ -796,6 +805,7 @@ const practices: Record<string, Practice> = {
     build: 'Revisit + Improve',
     principle: 'First versions are just first versions',
     overview: 'By now, you\'ve built several tools. Some you use daily; others you abandoned. This practice is about going back to something you actually use and making it better. Not adding features for the sake of it—solving real friction you\'ve experienced.',
+    beforeYouStart: 'You built a tool three weeks ago. You still use it, but there\'s one annoying thing. Maybe search is too slow, maybe you wish it had dark mode, maybe the mobile layout is broken. You know what needs fixing because you\'ve bumped into it a dozen times. Most people would live with it. This practice is about going back and making it right.',
     whatYoullBuild: 'An improved version of one of your earlier builds. You\'ll identify what\'s missing, prioritize ruthlessly, and implement the changes that actually matter.',
     steps: [
       {
@@ -891,6 +901,7 @@ const practices: Record<string, Practice> = {
     build: 'Self-directed',
     principle: 'You don\'t need permission',
     overview: 'Everything until now has been guided. This is you on your own. Build something only you would build. A tool for a problem only you have. The weird idea that doesn\'t fit any category. This is the point of everything—not to follow tutorials forever, but to make things that matter to you.',
+    beforeYouStart: 'You\'ve followed eight practices. You know the loop. You\'ve built things that work. But there\'s that one idea you\'ve been holding back—the weird one, the one that feels too specific to you, the one you\'re not sure anyone else would care about. That\'s exactly the one to build. This practice has no instructions because you don\'t need them anymore.',
     whatYoullBuild: 'Whatever you want. No requirements. No templates. Just you and Claude.',
     heroImage: '/screenshots/practice-09-make-your-own/01-blank-canvas.png',
     heroImageAlt: 'A blank canvas - what will you build?',
@@ -957,6 +968,31 @@ export default function PracticePage() {
   const params = useParams();
   const slug = params.slug as string;
   const practice = practices[slug];
+  const [isCompleted, setIsCompleted] = useState(false);
+
+  useEffect(() => {
+    const saved = localStorage.getItem('fieldguide-progress');
+    if (saved) {
+      const completed = JSON.parse(saved);
+      setIsCompleted(completed.includes(`practice-${slug}`));
+    }
+  }, [slug]);
+
+  const toggleComplete = () => {
+    const saved = localStorage.getItem('fieldguide-progress');
+    const completed = saved ? JSON.parse(saved) : [];
+    const itemId = `practice-${slug}`;
+
+    if (completed.includes(itemId)) {
+      const updated = completed.filter((id: string) => id !== itemId);
+      localStorage.setItem('fieldguide-progress', JSON.stringify(updated));
+      setIsCompleted(false);
+    } else {
+      completed.push(itemId);
+      localStorage.setItem('fieldguide-progress', JSON.stringify(completed));
+      setIsCompleted(true);
+    }
+  };
 
   if (!practice) {
     return (
@@ -973,20 +1009,20 @@ export default function PracticePage() {
   const nextSlug = currentIndex < slugs.length - 1 ? slugs[currentIndex + 1] : null;
 
   return (
-    <div className="p-8 lg:p-12 max-w-2xl">
+    <div className="p-12 lg:pl-48 lg:pr-20 lg:py-20 max-w-2xl">
       {/* Breadcrumb */}
-      <div className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-8">
+      <div className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-16">
         <Link href="/dashboard" className="hover:text-[var(--c-black)]">Dashboard</Link>
         <span className="mx-2">/</span>
         <span>Practice {practice.num}</span>
       </div>
 
       {/* Header */}
-      <div className="mb-8">
-        <div className="text-xs text-[var(--c-black)]/40 mb-2">
+      <div className="mb-12">
+        <div className="text-xs text-[var(--c-black)]/40 mb-3">
           <ScrambleText text={`Practice ${practice.num} of 09`} scrambleOnHover />
         </div>
-        <h1 className="text-3xl lg:text-4xl font-normal tracking-tight mb-2">
+        <h1 className="text-3xl lg:text-4xl font-normal tracking-tight mb-3">
           {practice.title}
         </h1>
         <div className="text-lg text-[var(--c-black)]/60 headline-serif">
@@ -995,22 +1031,30 @@ export default function PracticePage() {
       </div>
 
       {/* Principle */}
-      <div className="border-l-2 border-[var(--c-black)]/20 pl-6 mb-12">
-        <div className="text-xs uppercase tracking-widest text-[var(--c-black)]/40 mb-2">Principle</div>
-        <p className="text-xl headline-serif">{practice.principle}</p>
+      <div className="border-l-2 border-[var(--c-black)]/20 pl-8 mb-16">
+        <div className="text-xs uppercase tracking-widest text-[var(--c-black)]/40 mb-3">Principle</div>
+        <p className="text-xl headline-serif leading-relaxed">{practice.principle}</p>
       </div>
 
       {/* Overview */}
-      <div className="mb-12">
-        <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-4">Overview</h2>
-        <p className="text-[var(--c-black)]/80 leading-relaxed">{practice.overview}</p>
+      <div className="mb-16">
+        <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-6">Overview</h2>
+        <p className="text-[var(--c-black)]/80 leading-loose text-lg">{practice.overview}</p>
       </div>
+
+      {/* Before You Start */}
+      {practice.beforeYouStart && (
+        <div className="mb-16 border-l-4 border-[var(--c-moss)] bg-[var(--c-moss)]/5 pl-8 py-6">
+          <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-6">The Problem</h2>
+          <p className="text-[var(--c-black)]/70 leading-loose text-lg">{practice.beforeYouStart}</p>
+        </div>
+      )}
 
       {/* What You'll Build */}
       {practice.whatYoullBuild && (
-        <div className="mb-12 bg-[var(--c-black)]/5 p-6 rounded-sm">
-          <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-4">What You'll Build</h2>
-          <p className="text-[var(--c-black)]/80 leading-relaxed">{practice.whatYoullBuild}</p>
+        <div className="mb-16 bg-[var(--c-black)]/5 p-8 rounded-sm">
+          <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-6">What You'll Build</h2>
+          <p className="text-[var(--c-black)]/80 leading-loose">{practice.whatYoullBuild}</p>
           {practice.heroImage && (
             <div className="mt-6">
               <img
@@ -1027,38 +1071,38 @@ export default function PracticePage() {
       )}
 
       {/* Steps */}
-      <div className="mb-12">
-        <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-6">Steps</h2>
-        <div className="space-y-8">
+      <div className="mb-16">
+        <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-8">Steps</h2>
+        <div className="space-y-12">
           {practice.steps.map((step, i) => (
-            <div key={i} className="border-l border-[var(--c-black)]/10 pl-6">
-              <div className="flex items-start gap-4 mb-3">
+            <div key={i} className="border-l border-[var(--c-black)]/10 pl-8">
+              <div className="flex items-start gap-4 mb-4">
                 <span className="text-xs text-[var(--c-black)]/40 w-6 shrink-0 pt-0.5">
                   {String(i + 1).padStart(2, '0')}
                 </span>
-                <h3 className="text-base font-medium text-[var(--c-black)]">{step.title}</h3>
+                <h3 className="text-lg font-medium text-[var(--c-black)]">{step.title}</h3>
               </div>
               <div className="ml-10">
-                <p className="text-[var(--c-black)]/70 leading-relaxed mb-4">{step.description}</p>
+                <p className="text-[var(--c-black)]/70 leading-loose mb-6">{step.description}</p>
                 {step.prompt && (
-                  <div className="mb-4">
+                  <div className="mb-6">
                     <CopyablePrompt prompt={step.prompt} />
                   </div>
                 )}
                 {step.tip && (
-                  <div className="text-sm text-[var(--c-black)]/60 italic bg-[var(--c-black)]/5 p-3 rounded-sm">
+                  <div className="text-sm text-[var(--c-black)]/60 italic bg-[var(--c-black)]/5 p-4 rounded-sm leading-relaxed">
                     <span className="font-medium not-italic">Tip:</span> {step.tip}
                   </div>
                 )}
                 {step.image && (
-                  <div className="mt-4">
+                  <div className="mt-6">
                     <img
                       src={step.image}
                       alt={step.imageAlt || `Screenshot for step ${i + 1}`}
                       className="w-full rounded-sm border border-[var(--c-black)]/10 shadow-sm"
                     />
                     {step.imageAlt && (
-                      <p className="text-xs text-[var(--c-black)]/40 mt-2 italic">{step.imageAlt}</p>
+                      <p className="text-xs text-[var(--c-black)]/40 mt-3 italic">{step.imageAlt}</p>
                     )}
                   </div>
                 )}
@@ -1070,16 +1114,16 @@ export default function PracticePage() {
 
       {/* Additional Prompts */}
       {practice.prompts && practice.prompts.length > 0 && (
-        <div className="mb-12">
-          <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-6">Additional Prompts</h2>
-          <p className="text-[var(--c-black)]/60 text-sm mb-6">
+        <div className="mb-16">
+          <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-8">Additional Prompts</h2>
+          <p className="text-[var(--c-black)]/60 mb-8">
             Use these when you want to extend your build further.
           </p>
-          <div className="space-y-6">
+          <div className="space-y-8">
             {practice.prompts.map((item, i) => (
-              <div key={i} className="border-l border-[var(--c-black)]/10 pl-6">
-                <h3 className="text-sm font-medium text-[var(--c-black)] mb-2">{item.title}</h3>
-                <p className="text-xs text-[var(--c-black)]/50 mb-3">{item.use}</p>
+              <div key={i} className="border-l border-[var(--c-black)]/10 pl-8">
+                <h3 className="font-medium text-[var(--c-black)] mb-2">{item.title}</h3>
+                <p className="text-sm text-[var(--c-black)]/50 mb-4">{item.use}</p>
                 <CopyablePrompt prompt={item.prompt} />
               </div>
             ))}
@@ -1089,15 +1133,15 @@ export default function PracticePage() {
 
       {/* Troubleshooting */}
       {practice.troubleshooting && practice.troubleshooting.length > 0 && (
-        <div className="mb-12">
-          <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-6">When Things Break</h2>
+        <div className="mb-16">
+          <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-8">When Things Break</h2>
           <div className="space-y-4">
             {practice.troubleshooting.map((item, i) => (
               <details key={i} className="group border border-[var(--c-black)]/10 rounded-sm">
-                <summary className="p-4 cursor-pointer text-sm font-medium text-[var(--c-black)] hover:bg-[var(--c-black)]/5">
+                <summary className="p-5 cursor-pointer font-medium text-[var(--c-black)] hover:bg-[var(--c-black)]/5">
                   {item.problem}
                 </summary>
-                <div className="px-4 pb-4 text-sm text-[var(--c-black)]/70 leading-relaxed">
+                <div className="px-5 pb-5 text-[var(--c-black)]/70 leading-loose">
                   {item.solution}
                 </div>
               </details>
@@ -1108,15 +1152,15 @@ export default function PracticePage() {
 
       {/* Reflection */}
       {practice.reflection && practice.reflection.length > 0 && (
-        <div className="mb-12">
-          <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-6">Reflection</h2>
-          <div className="bg-[var(--c-black)]/5 p-6 rounded-sm">
-            <p className="text-xs text-[var(--c-black)]/50 mb-4">
+        <div className="mb-16">
+          <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-8">Reflection</h2>
+          <div className="bg-[var(--c-black)]/5 p-8 rounded-sm">
+            <p className="text-sm text-[var(--c-black)]/50 mb-6">
               After you've used your build for a few days, consider:
             </p>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               {practice.reflection.map((question, i) => (
-                <li key={i} className="text-[var(--c-black)]/70 leading-relaxed pl-4 border-l-2 border-[var(--c-black)]/10">
+                <li key={i} className="text-[var(--c-black)]/70 leading-loose pl-6 border-l-2 border-[var(--c-black)]/10">
                   {question}
                 </li>
               ))}
@@ -1127,14 +1171,14 @@ export default function PracticePage() {
 
       {/* Extensions */}
       {practice.extensions && practice.extensions.length > 0 && (
-        <div className="mb-12">
-          <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-6">Going Further</h2>
-          <p className="text-[var(--c-black)]/60 text-sm mb-4">
+        <div className="mb-16">
+          <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-8">Going Further</h2>
+          <p className="text-[var(--c-black)]/60 mb-6">
             Ideas if you want to keep building:
           </p>
-          <ul className="space-y-2">
+          <ul className="space-y-3">
             {practice.extensions.map((extension, i) => (
-              <li key={i} className="text-sm text-[var(--c-black)]/70 flex items-start gap-2">
+              <li key={i} className="text-[var(--c-black)]/70 leading-relaxed flex items-start gap-3">
                 <span className="text-[var(--c-black)]/30 mt-1">-</span>
                 {extension}
               </li>
@@ -1143,8 +1187,48 @@ export default function PracticePage() {
         </div>
       )}
 
+      {/* Step Progress Indicator */}
+      <div className="fixed bottom-8 right-8 hidden lg:block bg-[var(--c-cream)] border border-[var(--c-black)]/10 p-4 rounded-sm shadow-sm">
+        <div className="text-xs text-[var(--c-black)]/40 mb-3">
+          {practice.steps.length} Steps
+        </div>
+        <div className="flex flex-col gap-2">
+          {practice.steps.map((_, i) => (
+            <div
+              key={i}
+              className="flex items-center gap-2"
+            >
+              <div
+                className={`w-2 h-2 rounded-full ${
+                  i < practice.steps.length / 2
+                    ? 'bg-[var(--c-black)]/40'
+                    : 'bg-[var(--c-black)]/10'
+                }`}
+              />
+              <span className="text-xs text-[var(--c-black)]/30">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Mark as Complete */}
+      <div className="mt-16">
+        <button
+          onClick={toggleComplete}
+          className={`px-6 py-3 text-sm font-medium transition-colors ${
+            isCompleted
+              ? 'bg-[var(--c-black)]/10 text-[var(--c-black)] hover:bg-[var(--c-black)]/20'
+              : 'bg-[var(--c-black)] text-[var(--c-cream)] hover:bg-[var(--c-black)]/90'
+          }`}
+        >
+          {isCompleted ? '✓ Completed' : 'Mark as Complete'}
+        </button>
+      </div>
+
       {/* Navigation */}
-      <div className="flex justify-between mt-16 pt-8 border-t border-[var(--c-black)]/10">
+      <div className="flex justify-between mt-20 pt-10 border-t border-[var(--c-black)]/10">
         {prevSlug ? (
           <Link
             href={`/practice/${prevSlug}`}

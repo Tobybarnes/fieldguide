@@ -2,6 +2,7 @@
 
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 import { ScrambleText } from '../../../components/ScrambleText';
 
 const guides: Record<string, { num: string; title: string; content: string[] }> = {
@@ -36,6 +37,19 @@ const guides: Record<string, { num: string; title: string; content: string[] }> 
       'TEST: Run it. Open it in your browser. Click around. Does it do what you wanted?',
       'REFINE: Tell Claude what to fix. "The search isn\'t finding partial matches" or "Make the save button more obvious." Repeat until it\'s right.',
       'This loop is your methodology. You\'ll use it for everything—from simple pages to complex tools. The more you practice, the better you get at describing what you want.',
+      '',
+      'THE LOOP IN ACTION',
+      'Let\'s see this with a tiny example. Say you want a page that shows the current time.',
+      'DESCRIBE: "Build me a page that shows the current time, updating every second."',
+      'GENERATE: Claude writes the HTML and JavaScript. You copy it into a file called clock.html.',
+      'TEST: Open clock.html in your browser. Does it show the time? Does it update?',
+      'REFINE: "Make the time larger and center it on the page." Then: "Show the date below the time." Then: "Use a monospace font."',
+      'Each refinement is a loop. You\'ll do this hundreds of times. It never stops being useful.',
+      '',
+      'WHAT NOT TO DO',
+      'Don\'t ask Claude to "make it better." Better for who? For what purpose? Be specific.',
+      'Don\'t describe HOW the code should work. Claude knows how. You know WHAT you want it to do.',
+      'Don\'t add features before testing what you have. One thing at a time. Make it work, then make it better.',
     ],
   },
   'shipping': {
@@ -55,6 +69,31 @@ export default function GuidePage() {
   const params = useParams();
   const slug = params.slug as string;
   const guide = guides[slug];
+  const [isCompleted, setIsCompleted] = useState(false);
+
+  useEffect(() => {
+    const saved = localStorage.getItem('fieldguide-progress');
+    if (saved) {
+      const completed = JSON.parse(saved);
+      setIsCompleted(completed.includes(`guide-${slug}`));
+    }
+  }, [slug]);
+
+  const toggleComplete = () => {
+    const saved = localStorage.getItem('fieldguide-progress');
+    const completed = saved ? JSON.parse(saved) : [];
+    const itemId = `guide-${slug}`;
+
+    if (completed.includes(itemId)) {
+      const updated = completed.filter((id: string) => id !== itemId);
+      localStorage.setItem('fieldguide-progress', JSON.stringify(updated));
+      setIsCompleted(false);
+    } else {
+      completed.push(itemId);
+      localStorage.setItem('fieldguide-progress', JSON.stringify(completed));
+      setIsCompleted(true);
+    }
+  };
 
   if (!guide) {
     return (
@@ -71,7 +110,7 @@ export default function GuidePage() {
   const nextSlug = currentIndex < slugs.length - 1 ? slugs[currentIndex + 1] : null;
 
   return (
-    <div className="p-8 lg:p-12 max-w-2xl">
+    <div className="p-8 lg:pl-48 lg:pr-12 lg:py-12 max-w-2xl">
       {/* Breadcrumb */}
       <div className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-8">
         <Link href="/dashboard" className="hover:text-[var(--c-black)]">Dashboard</Link>
@@ -94,6 +133,20 @@ export default function GuidePage() {
         {guide.content.map((paragraph, i) => (
           <p key={i}>{paragraph}</p>
         ))}
+      </div>
+
+      {/* Mark as Complete */}
+      <div className="mt-12">
+        <button
+          onClick={toggleComplete}
+          className={`px-6 py-3 text-sm font-medium transition-colors ${
+            isCompleted
+              ? 'bg-[var(--c-black)]/10 text-[var(--c-black)] hover:bg-[var(--c-black)]/20'
+              : 'bg-[var(--c-black)] text-[var(--c-cream)] hover:bg-[var(--c-black)]/90'
+          }`}
+        >
+          {isCompleted ? '✓ Completed' : 'Mark as Complete'}
+        </button>
       </div>
 
       {/* Navigation */}

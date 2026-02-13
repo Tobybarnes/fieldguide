@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 import { ScrambleText } from '../../components/ScrambleText';
 
 const guides = [
@@ -23,8 +24,21 @@ const practices = [
 ];
 
 export default function Dashboard() {
+  const [completedSlugs, setCompletedSlugs] = useState<string[]>([]);
+
+  useEffect(() => {
+    const saved = localStorage.getItem('fieldguide-progress');
+    if (saved) {
+      setCompletedSlugs(JSON.parse(saved));
+    }
+  }, []);
+
+  const totalItems = guides.length + practices.length;
+  const completedCount = completedSlugs.length;
+  const progressPercent = Math.round((completedCount / totalItems) * 100);
+
   return (
-    <div className="p-8 lg:p-12 max-w-4xl">
+    <div className="p-8 lg:pl-48 lg:pr-12 lg:py-12 max-w-4xl">
       {/* Header */}
       <div className="mb-12">
         <div className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-2">
@@ -65,11 +79,21 @@ export default function Dashboard() {
       <div className="border border-[var(--c-black)]/10 p-6 mb-12">
         <div className="flex justify-between items-center mb-4">
           <span className="text-xs uppercase tracking-widest text-[var(--c-black)]/50">Progress</span>
-          <span className="text-sm text-[var(--c-black)]/50">0 / 13 completed</span>
+          <span className="text-sm text-[var(--c-black)]/50">
+            {completedCount} / {totalItems} completed
+          </span>
         </div>
         <div className="w-full h-1 bg-[var(--c-black)]/10">
-          <div className="h-full bg-[var(--c-black)] w-0" />
+          <div
+            className="h-full bg-[var(--c-black)] transition-all duration-500"
+            style={{ width: `${progressPercent}%` }}
+          />
         </div>
+        {completedCount > 0 && (
+          <div className="mt-4 text-sm text-[var(--c-black)]/60">
+            {progressPercent}% complete. Keep going—you've finished {completedCount} {completedCount === 1 ? 'item' : 'items'}.
+          </div>
+        )}
       </div>
 
       {/* Guides Section */}
@@ -78,21 +102,29 @@ export default function Dashboard() {
           Guides — Start Here
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {guides.map((guide) => (
-            <Link
-              key={guide.slug}
-              href={`/guide/${guide.slug}`}
-              className="border border-[var(--c-black)]/10 p-6 hover:border-[var(--c-black)]/30 transition-colors group"
-            >
-              <div className="flex items-start gap-4">
-                <span className="text-xs text-[var(--c-black)]/40">{guide.num}</span>
-                <div>
-                  <h3 className="font-medium mb-1 group-hover:underline">{guide.title}</h3>
-                  <p className="text-sm text-[var(--c-black)]/60">{guide.desc}</p>
+          {guides.map((guide) => {
+            const isCompleted = completedSlugs.includes(`guide-${guide.slug}`);
+            return (
+              <Link
+                key={guide.slug}
+                href={`/guide/${guide.slug}`}
+                className={`border p-6 hover:border-[var(--c-black)]/30 transition-colors group relative ${
+                  isCompleted ? 'border-[var(--c-black)]/20 bg-[var(--c-black)]/5' : 'border-[var(--c-black)]/10'
+                }`}
+              >
+                {isCompleted && (
+                  <div className="absolute top-4 right-4 text-xs text-[var(--c-black)]/40">✓</div>
+                )}
+                <div className="flex items-start gap-4">
+                  <span className="text-xs text-[var(--c-black)]/40">{guide.num}</span>
+                  <div>
+                    <h3 className="font-medium mb-1 group-hover:underline">{guide.title}</h3>
+                    <p className="text-sm text-[var(--c-black)]/60">{guide.desc}</p>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            );
+          })}
         </div>
       </section>
 
@@ -102,19 +134,25 @@ export default function Dashboard() {
           The Nine Practices
         </h2>
         <div className="space-y-2">
-          {practices.map((practice) => (
-            <Link
-              key={practice.slug}
-              href={`/practice/${practice.slug}`}
-              className="flex items-center justify-between border border-[var(--c-black)]/10 p-4 hover:border-[var(--c-black)]/30 transition-colors group"
-            >
-              <div className="flex items-center gap-4">
-                <span className="text-xs text-[var(--c-black)]/40 w-6">{practice.num}</span>
-                <span className="group-hover:underline">{practice.title}</span>
-              </div>
-              <span className="text-sm text-[var(--c-black)]/40">{practice.build}</span>
-            </Link>
-          ))}
+          {practices.map((practice) => {
+            const isCompleted = completedSlugs.includes(`practice-${practice.slug}`);
+            return (
+              <Link
+                key={practice.slug}
+                href={`/practice/${practice.slug}`}
+                className={`flex items-center justify-between border p-4 hover:border-[var(--c-black)]/30 transition-colors group ${
+                  isCompleted ? 'border-[var(--c-black)]/20 bg-[var(--c-black)]/5' : 'border-[var(--c-black)]/10'
+                }`}
+              >
+                <div className="flex items-center gap-4">
+                  <span className="text-xs text-[var(--c-black)]/40 w-6">{practice.num}</span>
+                  {isCompleted && <span className="text-xs text-[var(--c-black)]/40">✓</span>}
+                  <span className="group-hover:underline">{practice.title}</span>
+                </div>
+                <span className="text-sm text-[var(--c-black)]/40">{practice.build}</span>
+              </Link>
+            );
+          })}
         </div>
       </section>
 

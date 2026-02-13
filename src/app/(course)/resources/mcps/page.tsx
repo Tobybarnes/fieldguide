@@ -88,31 +88,77 @@ const mcps: MCP[] = [
 
 export default function MCPsPage() {
   return (
-    <div className="p-8 lg:p-12 max-w-2xl">
+    <div className="p-12 lg:pl-48 lg:pr-24 lg:py-24 max-w-3xl">
       {/* Breadcrumb */}
-      <div className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-8">
+      <div className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-16">
         <Link href="/dashboard" className="hover:text-[var(--c-black)]">Dashboard</Link>
         <span className="mx-2">/</span>
         <span>MCPs</span>
       </div>
 
       {/* Header */}
-      <div className="mb-12">
-        <div className="text-xs text-[var(--c-black)]/40 mb-2">
+      <div className="mb-20">
+        <div className="text-xs text-[var(--c-black)]/40 mb-4">
           <ScrambleText text="Integrations" scrambleOnHover />
         </div>
-        <h1 className="text-3xl lg:text-4xl font-normal tracking-tight mb-4">
+        <h1 className="text-3xl lg:text-4xl font-normal tracking-tight mb-6">
           Using MCPs
         </h1>
-        <p className="text-[var(--c-black)]/60 leading-relaxed">
+        <p className="text-[var(--c-black)]/60 leading-loose text-lg">
           Connect Claude to your real data with Model Context Protocol servers.
         </p>
       </div>
 
+      {/* Quick Win Example */}
+      <div className="mb-20 bg-[var(--c-moss)]/10 border-l-4 border-[var(--c-moss)] p-10 rounded-sm">
+        <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-8">See Your Calendar in Claude</h2>
+        <p className="text-[var(--c-black)]/70 leading-loose text-lg mb-8">
+          Open Claude and type: "What's on my calendar today?"
+        </p>
+        <div className="bg-[var(--c-black)] text-[var(--c-cream)] p-6 rounded-sm font-mono text-sm mb-6">
+          <div className="mb-4 text-[var(--c-cream)]/60">You:</div>
+          <div className="mb-6">What's on my calendar today?</div>
+          <div className="mb-4 text-[var(--c-cream)]/60">Claude:</div>
+          <div className="text-[var(--c-cream)]/90">
+            You have 3 events today:<br/>
+            • 9:00 AM - Team standup (30 min)<br/>
+            • 11:00 AM - Design review with Sarah (1 hour)<br/>
+            • 2:00 PM - Client call (45 min)<br/><br/>
+            Your afternoon is relatively light after 2:45 PM.
+          </div>
+        </div>
+        <p className="text-[var(--c-black)]/60 italic">
+          That's an MCP. Claude just read your actual calendar. No copy/paste. Want to set this up?
+        </p>
+      </div>
+
+      {/* Before/After */}
+      <div className="mb-20 bg-[var(--c-black)]/5 p-10 rounded-sm">
+        <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-8">Why MCPs Matter</h2>
+        <div className="grid md:grid-cols-2 gap-12">
+          <div>
+            <div className="text-xs font-medium text-[var(--c-black)]/40 mb-4">Without MCPs:</div>
+            <ol className="text-[var(--c-black)]/70 space-y-3 list-decimal list-inside leading-relaxed">
+              <li>Open your calendar</li>
+              <li>Copy today's events</li>
+              <li>Paste into Claude</li>
+              <li>Ask your question</li>
+            </ol>
+          </div>
+          <div>
+            <div className="text-xs font-medium text-[var(--c-black)]/40 mb-4">With MCPs:</div>
+            <ol className="text-[var(--c-black)]/70 space-y-3 list-decimal list-inside leading-relaxed">
+              <li>Ask Claude about your day</li>
+            </ol>
+            <p className="text-[var(--c-black)]/50 mt-4 italic">That's it.</p>
+          </div>
+        </div>
+      </div>
+
       {/* What's an MCP */}
-      <div className="mb-12">
-        <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-4">What's an MCP?</h2>
-        <div className="space-y-4 text-[var(--c-black)]/80 leading-relaxed">
+      <div className="mb-20">
+        <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-8">What's an MCP?</h2>
+        <div className="space-y-8 text-[var(--c-black)]/80 leading-[1.9] text-lg">
           <p>
             Model Context Protocol (MCP) is a way to give Claude access to external tools and data.
             Instead of copying and pasting information into Claude, MCPs let Claude read directly from
@@ -124,50 +170,27 @@ export default function MCPsPage() {
         </div>
       </div>
 
-      {/* Before/After */}
-      <div className="mb-12 bg-[var(--c-black)]/5 p-6 rounded-sm">
-        <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-4">Why MCPs Matter</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div>
-            <div className="text-xs font-medium text-[var(--c-black)]/40 mb-2">Without MCPs:</div>
-            <ol className="text-sm text-[var(--c-black)]/70 space-y-1 list-decimal list-inside">
-              <li>Open your calendar</li>
-              <li>Copy today's events</li>
-              <li>Paste into Claude</li>
-              <li>Ask your question</li>
-            </ol>
-          </div>
-          <div>
-            <div className="text-xs font-medium text-[var(--c-black)]/40 mb-2">With MCPs:</div>
-            <ol className="text-sm text-[var(--c-black)]/70 space-y-1 list-decimal list-inside">
-              <li>Ask Claude about your day</li>
-            </ol>
-            <p className="text-sm text-[var(--c-black)]/50 mt-2 italic">That's it.</p>
-          </div>
-        </div>
-      </div>
-
       {/* Google Workspace Setup Guide */}
-      <div className="mb-12 bg-[var(--c-black)]/5 p-6 rounded-sm">
-        <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-4">Setting Up Google Workspace MCP</h2>
-        <p className="text-[var(--c-black)]/70 mb-4">
+      <div className="mb-20 bg-[var(--c-black)]/5 p-10 rounded-sm">
+        <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-8">Setting Up Google Workspace MCP</h2>
+        <p className="text-[var(--c-black)]/70 leading-[1.9] mb-8 text-lg">
           We assume everyone following this course will set up Google Workspace MCP. It&apos;s the foundation that makes everything else more powerful.
         </p>
-        <ol className="space-y-3 text-sm text-[var(--c-black)]/70 mb-4">
-          <li className="flex items-start gap-3">
-            <span className="text-xs text-[var(--c-black)]/40 w-5 pt-0.5">1.</span>
+        <ol className="space-y-5 text-[var(--c-black)]/70 mb-8 text-lg">
+          <li className="flex items-start gap-4">
+            <span className="text-sm text-[var(--c-black)]/40 w-6 pt-0.5">1.</span>
             <span><strong>Get Claude Code</strong> or another MCP-compatible client</span>
           </li>
-          <li className="flex items-start gap-3">
-            <span className="text-xs text-[var(--c-black)]/40 w-5 pt-0.5">2.</span>
+          <li className="flex items-start gap-4">
+            <span className="text-sm text-[var(--c-black)]/40 w-6 pt-0.5">2.</span>
             <span><strong>Add Google Workspace MCP</strong> to your configuration</span>
           </li>
-          <li className="flex items-start gap-3">
-            <span className="text-xs text-[var(--c-black)]/40 w-5 pt-0.5">3.</span>
+          <li className="flex items-start gap-4">
+            <span className="text-sm text-[var(--c-black)]/40 w-6 pt-0.5">3.</span>
             <span><strong>Authenticate with Google</strong> when prompted</span>
           </li>
-          <li className="flex items-start gap-3">
-            <span className="text-xs text-[var(--c-black)]/40 w-5 pt-0.5">4.</span>
+          <li className="flex items-start gap-4">
+            <span className="text-sm text-[var(--c-black)]/40 w-6 pt-0.5">4.</span>
             <span><strong>Test it</strong> by asking &ldquo;What&apos;s on my calendar today?&rdquo;</span>
           </li>
         </ol>
@@ -175,19 +198,19 @@ export default function MCPsPage() {
       </div>
 
       {/* MCP List */}
-      <div className="mb-12">
-        <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-6">Personal MCPs Worth Setting Up</h2>
-        <div className="space-y-8">
+      <div className="mb-20">
+        <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-8">Personal MCPs Worth Setting Up</h2>
+        <div className="space-y-10">
           {mcps.map((mcp) => (
-            <div key={mcp.name} className="border border-[var(--c-black)]/10 rounded-sm p-6">
-              <h3 className="text-lg font-medium mb-2">{mcp.name} MCP</h3>
-              <p className="text-[var(--c-black)]/70 mb-4">{mcp.description}</p>
+            <div key={mcp.name} className="border border-[var(--c-black)]/10 rounded-sm p-8">
+              <h3 className="text-xl font-medium mb-3">{mcp.name} MCP</h3>
+              <p className="text-[var(--c-black)]/70 leading-loose mb-6">{mcp.description}</p>
 
-              <div className="mb-4">
-                <div className="text-xs font-medium text-[var(--c-black)]/40 mb-2">Why it's useful:</div>
-                <ul className="text-sm text-[var(--c-black)]/60 space-y-1">
+              <div className="mb-6">
+                <div className="text-xs font-medium text-[var(--c-black)]/40 mb-3">Why it's useful:</div>
+                <ul className="text-[var(--c-black)]/60 space-y-2">
                   {mcp.useCase.map((use, i) => (
-                    <li key={i} className="flex items-start gap-2">
+                    <li key={i} className="flex items-start gap-3 leading-relaxed">
                       <span className="text-[var(--c-black)]/30">-</span>
                       "{use}"
                     </li>
@@ -195,7 +218,7 @@ export default function MCPsPage() {
                 </ul>
               </div>
 
-              <div className="text-xs text-[var(--c-black)]/50 mb-4">
+              <div className="text-sm text-[var(--c-black)]/50 mb-6">
                 <span className="font-medium">Setup:</span> {mcp.setup}
               </div>
 
@@ -206,49 +229,49 @@ export default function MCPsPage() {
       </div>
 
       {/* Recommended Order */}
-      <div className="mb-12">
-        <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-4">Recommended Setup Order</h2>
-        <ol className="space-y-2 text-[var(--c-black)]/70">
-          <li className="flex items-start gap-3">
+      <div className="mb-20">
+        <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-8">Recommended Setup Order</h2>
+        <ol className="space-y-4 text-[var(--c-black)]/70">
+          <li className="flex items-start gap-4">
             <span className="text-xs text-[var(--c-black)]/40 w-5">1.</span>
             <span><strong>Google Workspace</strong> — Email and calendar are universal</span>
           </li>
-          <li className="flex items-start gap-3">
+          <li className="flex items-start gap-4">
             <span className="text-xs text-[var(--c-black)]/40 w-5">2.</span>
             <span><strong>File System</strong> — For working with local files</span>
           </li>
-          <li className="flex items-start gap-3">
+          <li className="flex items-start gap-4">
             <span className="text-xs text-[var(--c-black)]/40 w-5">3.</span>
             <span><strong>GitHub</strong> (if you code) — For repository access</span>
           </li>
-          <li className="flex items-start gap-3">
+          <li className="flex items-start gap-4">
             <span className="text-xs text-[var(--c-black)]/40 w-5">4.</span>
             <span><strong>Slack</strong> (if you use it) — For team communication</span>
           </li>
-          <li className="flex items-start gap-3">
+          <li className="flex items-start gap-4">
             <span className="text-xs text-[var(--c-black)]/40 w-5">5.</span>
             <span><strong>Notion</strong> (if you use it) — For notes and tasks</span>
           </li>
         </ol>
-        <p className="text-sm text-[var(--c-black)]/50 mt-4 italic">
+        <p className="text-[var(--c-black)]/50 mt-6 italic">
           Start with Google Workspace. Get comfortable with one MCP before adding more.
         </p>
       </div>
 
       {/* Using Google Throughout Course */}
-      <div className="mb-12 border-l-2 border-[var(--c-black)]/20 pl-6">
-        <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-4">Using Google Workspace Throughout This Course</h2>
-        <p className="text-[var(--c-black)]/70 mb-4">Many practices become more powerful with Google Workspace connected:</p>
-        <ul className="space-y-2 text-sm text-[var(--c-black)]/70">
-          <li className="flex items-start gap-2">
+      <div className="mb-20 border-l-2 border-[var(--c-black)]/20 pl-8">
+        <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-8">Using Google Workspace Throughout This Course</h2>
+        <p className="text-[var(--c-black)]/70 leading-loose mb-6">Many practices become more powerful with Google Workspace connected:</p>
+        <ul className="space-y-4 text-[var(--c-black)]/70">
+          <li className="flex items-start gap-3 leading-relaxed">
             <span className="text-[var(--c-black)]/30">-</span>
             <span><strong>Practice 03 (Remember)</strong>: Ask &ldquo;What meetings did I have yesterday?&rdquo; before journaling</span>
           </li>
-          <li className="flex items-start gap-2">
+          <li className="flex items-start gap-3 leading-relaxed">
             <span className="text-[var(--c-black)]/30">-</span>
             <span><strong>Practice 07 (Gather)</strong>: Your dashboard can show real calendar events</span>
           </li>
-          <li className="flex items-start gap-2">
+          <li className="flex items-start gap-3 leading-relaxed">
             <span className="text-[var(--c-black)]/30">-</span>
             <span><strong>Practice 08 (Refine)</strong>: Search emails for context on features to improve</span>
           </li>
@@ -256,23 +279,23 @@ export default function MCPsPage() {
       </div>
 
       {/* Security */}
-      <div className="mb-12 bg-[var(--c-black)]/5 p-6 rounded-sm">
-        <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-4">Security Considerations</h2>
-        <p className="text-[var(--c-black)]/70 mb-4">MCPs have access to your real data. Be thoughtful:</p>
-        <ul className="space-y-2 text-sm text-[var(--c-black)]/70">
-          <li className="flex items-start gap-2">
+      <div className="mb-20 bg-[var(--c-black)]/5 p-10 rounded-sm">
+        <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-8">Security Considerations</h2>
+        <p className="text-[var(--c-black)]/70 leading-loose mb-6">MCPs have access to your real data. Be thoughtful:</p>
+        <ul className="space-y-4 text-[var(--c-black)]/70">
+          <li className="flex items-start gap-3 leading-relaxed">
             <span className="text-[var(--c-black)]/30">-</span>
             <span><strong>Review permissions</strong> — Understand what each MCP can read and write</span>
           </li>
-          <li className="flex items-start gap-2">
+          <li className="flex items-start gap-3 leading-relaxed">
             <span className="text-[var(--c-black)]/30">-</span>
             <span><strong>Use read-only when possible</strong> — If you only need to read data, don't grant write access</span>
           </li>
-          <li className="flex items-start gap-2">
+          <li className="flex items-start gap-3 leading-relaxed">
             <span className="text-[var(--c-black)]/30">-</span>
             <span><strong>Limit scope</strong> — Give access to specific folders, not your entire file system</span>
           </li>
-          <li className="flex items-start gap-2">
+          <li className="flex items-start gap-3 leading-relaxed">
             <span className="text-[var(--c-black)]/30">-</span>
             <span><strong>Revoke unused MCPs</strong> — Remove access when you're not using an MCP</span>
           </li>
@@ -280,50 +303,50 @@ export default function MCPsPage() {
       </div>
 
       {/* Build Your Own */}
-      <div className="mb-12">
-        <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-4">Building Your Own MCP</h2>
-        <p className="text-[var(--c-black)]/70 mb-4">
+      <div className="mb-20">
+        <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-8">Building Your Own MCP</h2>
+        <p className="text-[var(--c-black)]/70 leading-loose mb-6">
           Eventually, you might want an MCP for something that doesn't exist. Good news: you can build it.
         </p>
         <CopyablePrompt prompt="Help me build a simple MCP server that reads my local JSON file of book notes and lets me search through them." />
-        <p className="text-sm text-[var(--c-black)]/50 mt-4">
+        <p className="text-[var(--c-black)]/50 mt-6">
           MCPs are just servers that follow a specific protocol. If you can write a simple API, you can write an MCP.
         </p>
       </div>
 
       {/* Common Issues */}
-      <div className="mb-12">
-        <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-6">Common MCP Issues</h2>
+      <div className="mb-20">
+        <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-8">Common MCP Issues</h2>
         <div className="space-y-4">
           <details className="group border border-[var(--c-black)]/10 rounded-sm">
-            <summary className="p-4 cursor-pointer text-sm font-medium text-[var(--c-black)] hover:bg-[var(--c-black)]/5">
+            <summary className="p-5 cursor-pointer font-medium text-[var(--c-black)] hover:bg-[var(--c-black)]/5">
               MCP not responding
             </summary>
-            <div className="px-4 pb-4 text-sm text-[var(--c-black)]/70 leading-relaxed">
+            <div className="px-5 pb-5 text-[var(--c-black)]/70 leading-loose">
               Check that the MCP server is running. Most need to be started before they work.
             </div>
           </details>
           <details className="group border border-[var(--c-black)]/10 rounded-sm">
-            <summary className="p-4 cursor-pointer text-sm font-medium text-[var(--c-black)] hover:bg-[var(--c-black)]/5">
+            <summary className="p-5 cursor-pointer font-medium text-[var(--c-black)] hover:bg-[var(--c-black)]/5">
               Authentication expired
             </summary>
-            <div className="px-4 pb-4 text-sm text-[var(--c-black)]/70 leading-relaxed">
+            <div className="px-5 pb-5 text-[var(--c-black)]/70 leading-loose">
               Tokens expire. Re-authenticate when prompted.
             </div>
           </details>
           <details className="group border border-[var(--c-black)]/10 rounded-sm">
-            <summary className="p-4 cursor-pointer text-sm font-medium text-[var(--c-black)] hover:bg-[var(--c-black)]/5">
+            <summary className="p-5 cursor-pointer font-medium text-[var(--c-black)] hover:bg-[var(--c-black)]/5">
               Can't find my data
             </summary>
-            <div className="px-4 pb-4 text-sm text-[var(--c-black)]/70 leading-relaxed">
+            <div className="px-5 pb-5 text-[var(--c-black)]/70 leading-loose">
               Check the MCP's scope. It might only have access to specific folders or channels.
             </div>
           </details>
           <details className="group border border-[var(--c-black)]/10 rounded-sm">
-            <summary className="p-4 cursor-pointer text-sm font-medium text-[var(--c-black)] hover:bg-[var(--c-black)]/5">
+            <summary className="p-5 cursor-pointer font-medium text-[var(--c-black)] hover:bg-[var(--c-black)]/5">
               Rate limits
             </summary>
-            <div className="px-4 pb-4 text-sm text-[var(--c-black)]/70 leading-relaxed">
+            <div className="px-5 pb-5 text-[var(--c-black)]/70 leading-loose">
               Some services limit how often you can query them. Wait a minute and try again.
             </div>
           </details>
@@ -331,18 +354,18 @@ export default function MCPsPage() {
       </div>
 
       {/* What MCPs Are Not */}
-      <div className="mb-12 border-l-2 border-[var(--c-black)]/20 pl-6">
-        <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-4">What MCPs Are Not</h2>
-        <ul className="space-y-2 text-[var(--c-black)]/70">
-          <li className="flex items-start gap-2">
+      <div className="mb-20 border-l-2 border-[var(--c-black)]/20 pl-8">
+        <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-8">What MCPs Are Not</h2>
+        <ul className="space-y-4 text-[var(--c-black)]/70">
+          <li className="flex items-start gap-3 leading-relaxed">
             <span className="text-[var(--c-black)]/30">-</span>
             <span><strong>AI that runs autonomously</strong> — MCPs are tools Claude uses when you ask</span>
           </li>
-          <li className="flex items-start gap-2">
+          <li className="flex items-start gap-3 leading-relaxed">
             <span className="text-[var(--c-black)]/30">-</span>
             <span><strong>Always-on monitoring</strong> — They only activate during conversations</span>
           </li>
-          <li className="flex items-start gap-2">
+          <li className="flex items-start gap-3 leading-relaxed">
             <span className="text-[var(--c-black)]/30">-</span>
             <span><strong>Replacements for apps</strong> — They augment your workflow, not replace your tools</span>
           </li>
