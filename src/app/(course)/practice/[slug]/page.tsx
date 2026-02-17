@@ -43,6 +43,63 @@ interface Practice {
   extensions?: string[];
 }
 
+const practicePrinciples: Record<string, { japanese: string; romanji: string; title: string; note: string }> = {
+  'starting': {
+    japanese: '簡素',
+    romanji: 'Kanso',
+    title: 'Simplicity',
+    note: 'Your first build is simple. One file. One page. Nothing extra. Simplicity enables action.',
+  },
+  'capture': {
+    japanese: '幽玄',
+    romanji: 'Yūgen',
+    title: 'Profound Grace',
+    note: 'Capture the essence. URLs. Thoughts. Moments. Save what matters. Let the rest fade. Show more by showing less.',
+  },
+  'remember': {
+    japanese: '静寂',
+    romanji: 'Seijaku',
+    title: 'Stillness',
+    note: 'Daily reflection requires calm. A quiet space to record what happened. What you learned. What you noticed.',
+  },
+  'move': {
+    japanese: '自然',
+    romanji: 'Shizen',
+    title: 'Naturalness',
+    note: 'Track movement as it happens. Honest. Unforced. Real. No artificiality in how you record your body's work.',
+  },
+  'collect': {
+    japanese: '渋み',
+    romanji: 'Shibumi',
+    title: 'Subtle Grace',
+    note: 'Curate your collection with understated care. Not flashy. Not overdesigned. Just functional and beautiful.',
+  },
+  'see': {
+    japanese: '不均整',
+    romanji: 'Fukinsei',
+    title: 'Asymmetry',
+    note: 'Photos capture irregular moments. Not perfectly composed. Balanced. Beauty in the everyday. Unplanned. Imperfect.',
+  },
+  'gather': {
+    japanese: '簡素',
+    romanji: 'Kanso',
+    title: 'Simplicity',
+    note: 'Your dashboard brings everything together. But only what you need. No clutter. Clear purpose. Essential information.',
+  },
+  'refine': {
+    japanese: '渋み',
+    romanji: 'Shibumi',
+    title: 'Subtle Grace',
+    note: 'Polish without overstatement. Refinement means removing what doesn't serve. Enhancing what does. Restrained elegance.',
+  },
+  'make-your-own': {
+    japanese: 'だつぞく',
+    romanji: 'Datsuzoku',
+    title: 'Freedom',
+    note: 'Now you build anything. No formula. No prescribed path. Complete freedom. Make what you need.',
+  },
+};
+
 const practices: Record<string, Practice> = {
   'starting': {
     num: '01',
@@ -1226,6 +1283,21 @@ export default function PracticePage() {
           {isCompleted ? '✓ Completed' : 'Mark as Complete'}
         </button>
       </div>
+
+      {/* Design Principle */}
+      {practicePrinciples[slug] && (
+        <div className="mt-12 border-l-4 border-[var(--c-moss)]/30 bg-[var(--c-moss)]/5 pl-6 py-4">
+          <div className="flex items-baseline gap-3 mb-2">
+            <span className="text-2xl text-[var(--c-black)]/20">{practicePrinciples[slug].japanese}</span>
+            <span className="text-xs uppercase tracking-widest text-[var(--c-black)]/40">
+              {practicePrinciples[slug].romanji} — {practicePrinciples[slug].title}
+            </span>
+          </div>
+          <p className="text-sm text-[var(--c-black)]/60 leading-relaxed">
+            {practicePrinciples[slug].note}
+          </p>
+        </div>
+      )}
 
       {/* Navigation */}
       <div className="flex justify-between mt-20 pt-10 border-t border-[var(--c-black)]/10">

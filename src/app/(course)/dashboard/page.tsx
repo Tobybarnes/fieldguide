@@ -156,6 +156,26 @@ export default function Dashboard() {
         </div>
       </section>
 
+      {/* Design Philosophy Callout */}
+      <section className="mb-12 border-l-4 border-[var(--c-moss)] bg-[var(--c-moss)]/5 pl-8 py-6">
+        <div className="flex items-start justify-between gap-6">
+          <div>
+            <h3 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-3">
+              七つの原則 (Seven Principles)
+            </h3>
+            <p className="text-[var(--c-black)]/70 leading-loose mb-4">
+              Field Guide draws from Japanese aesthetic philosophy. Principles that have guided makers for centuries. Simplicity. Asymmetry. Subtle grace. Naturalness. Mystery. Freedom. Stillness.
+            </p>
+            <Link
+              href="/design"
+              className="inline-block text-sm text-[var(--c-black)] hover:underline"
+            >
+              Read about the design philosophy →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Quick Links */}
       <section>
         <h2 className="text-xs uppercase tracking-widest text-[var(--c-black)]/50 mb-6">

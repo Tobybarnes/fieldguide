@@ -5,6 +5,33 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { ScrambleText } from '../../../components/ScrambleText';
 
+const principles: Record<string, { japanese: string; romanji: string; title: string; note: string }> = {
+  'before-you-begin': {
+    japanese: '自然',
+    romanji: 'Shizen',
+    title: 'Naturalness',
+    note: 'Be honest about what you can make. No pretense about becoming something you're not. Just the natural capability to build what you need.',
+  },
+  'setting-up': {
+    japanese: '簡素',
+    romanji: 'Kanso',
+    title: 'Simplicity',
+    note: 'Three tools. That's all. Everything essential, nothing extra. Simplicity enables action.',
+  },
+  'the-loop': {
+    japanese: '静寂',
+    romanji: 'Seijaku',
+    title: 'Stillness',
+    note: 'The loop is calm. Methodical. Unhurried. Describe, generate, test, refine. Again and again. Calm in iteration.',
+  },
+  'shipping': {
+    japanese: 'だつぞく',
+    romanji: 'Datsuzoku',
+    title: 'Freedom',
+    note: 'Break free from "it must be perfect to ship." Some things are just for you. That's fine. Transcend the conventional.',
+  },
+};
+
 const guides: Record<string, { num: string; title: string; content: string[] }> = {
   'before-you-begin': {
     num: '01',
@@ -148,6 +175,21 @@ export default function GuidePage() {
           {isCompleted ? '✓ Completed' : 'Mark as Complete'}
         </button>
       </div>
+
+      {/* Design Principle */}
+      {principles[slug] && (
+        <div className="mt-12 border-l-4 border-[var(--c-moss)]/30 bg-[var(--c-moss)]/5 pl-6 py-4">
+          <div className="flex items-baseline gap-3 mb-2">
+            <span className="text-2xl text-[var(--c-black)]/20">{principles[slug].japanese}</span>
+            <span className="text-xs uppercase tracking-widest text-[var(--c-black)]/40">
+              {principles[slug].romanji} — {principles[slug].title}
+            </span>
+          </div>
+          <p className="text-sm text-[var(--c-black)]/60 leading-relaxed">
+            {principles[slug].note}
+          </p>
+        </div>
+      )}
 
       {/* Navigation */}
       <div className="flex justify-between mt-16 pt-8 border-t border-[var(--c-black)]/10">

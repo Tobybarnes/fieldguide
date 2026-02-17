@@ -140,6 +140,14 @@ export function Navigation({ mobile = false }: { mobile?: boolean }) {
             >
               Using MCPs
             </Link>
+            <Link
+              href="/design"
+              className={`block py-1.5 text-sm transition-colors ${
+                pathname === '/design' ? 'text-white' : 'text-white/60 hover:text-white'
+              }`}
+            >
+              Design Philosophy
+            </Link>
           </nav>
         </div>
       </div>

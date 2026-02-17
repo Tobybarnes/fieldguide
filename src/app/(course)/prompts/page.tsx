@@ -153,6 +153,15 @@ export default function PromptsPage() {
           </div>
         ))}
       </div>
+
+      {/* Design Note */}
+      <div className="mt-16 pt-12 border-t border-[var(--c-black)]/10">
+        <p className="text-xs text-[var(--c-black)]/50 leading-relaxed">
+          These prompts embody <span className="text-[var(--c-black)]/70">簡素 (Kanso)</span>. Simplicity.
+          Clear requests. No jargon. Straight to the point.
+          When you build with Claude, speak plainly. Say what you want. Not how to do it.
+        </p>
+      </div>
     </div>
   );
 }

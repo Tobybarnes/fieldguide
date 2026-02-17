@@ -301,12 +301,67 @@ export default function Home() {
             style={{ padding: '4rem' }}
           >
             <div className="max-w-lg">
+              <div className="text-[10px] uppercase tracking-widest text-white/40 mb-6">
+                Whole Earth Catalog
+              </div>
               <blockquote className="text-xl lg:text-2xl font-normal leading-relaxed mb-6 headline-serif italic">
                 &ldquo;We are as gods and might as well get good at it.&rdquo;
               </blockquote>
               <cite className="text-sm text-white/70 not-italic">
-                — Stewart Brand, Whole Earth Catalog
+                — Stewart Brand
               </cite>
+            </div>
+          </motion.section>
+
+          {/* Design Philosophy Section */}
+          <motion.section
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="bg-[var(--c-cream)] border-t border-[var(--c-black)]/10"
+            style={{ padding: '4rem' }}
+          >
+            <div className="max-w-lg">
+              <div className="text-[10px] uppercase tracking-widest text-[var(--c-black)]/40 mb-6">
+                七つの原則
+              </div>
+              <h2 className="text-2xl lg:text-3xl font-normal mb-6 tracking-tight">
+                Seven <span className="headline-serif italic">Principles</span>
+              </h2>
+              <p className="text-sm text-[#444] leading-relaxed mb-8">
+                Field Guide draws from Japanese aesthetic philosophy. Seven principles that craftspeople have used for centuries. Simplicity. Asymmetry. Subtle grace. Naturalness. Mystery. Freedom. Stillness. Ways of thinking about making things.
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center text-xs text-[var(--c-black)]/60">
+                <div>
+                  <div className="text-2xl mb-1">簡素</div>
+                  <div>Kanso</div>
+                </div>
+                <div>
+                  <div className="text-2xl mb-1">不均整</div>
+                  <div>Fukinsei</div>
+                </div>
+                <div>
+                  <div className="text-2xl mb-1">渋み</div>
+                  <div>Shibumi</div>
+                </div>
+                <div>
+                  <div className="text-2xl mb-1">自然</div>
+                  <div>Shizen</div>
+                </div>
+                <div>
+                  <div className="text-2xl mb-1">幽玄</div>
+                  <div>Yūgen</div>
+                </div>
+                <div>
+                  <div className="text-2xl mb-1">だつぞく</div>
+                  <div>Datsuzoku</div>
+                </div>
+                <div>
+                  <div className="text-2xl mb-1">静寂</div>
+                  <div>Seijaku</div>
+                </div>
+              </div>
             </div>
           </motion.section>
 
