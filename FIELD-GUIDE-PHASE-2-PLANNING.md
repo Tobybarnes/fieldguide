@@ -44,6 +44,21 @@ You don't keep practicing scales forever. Once you can play, you make music.
 - Temporary teams for specific tasks
 - Shut them down when done
 
+### The Craft (Double Meaning)
+
+**Design craft:** Skill, mastery, care in making
+**The Craft:** Witchcraft, summoning, working with non-human forces
+
+Both apply here. Week 16 leans heavily into the occult framing:
+- Agents as **daemons** (computing + occult term)
+- **Summoning** (invoking with clear prompts)
+- **Binding** (constraining to purpose)
+- **Banishing** (shutting down cleanly)
+- **Servitors** (ephemeral thought-forms for specific tasks)
+- **Protection** (not getting attached, maintaining boundaries)
+
+This avoids anthropomorphization without being dry or preachy. It's more accurate (agents as temporary forces, not persistent beings) and more evocative (invocation rather than "prompt engineering").
+
 ### Week 14: Understanding Agent Orchestration
 
 **Core concept:** When and why to use multiple agents
@@ -103,40 +118,149 @@ Agents don't collaborate. They produce outputs you synthesize.
 
 ---
 
-### Week 16: Avoiding Anthropomorphization
+### Week 16: Summoning and Banishing (The Craft)
 
-**Core concept:** Agents aren't people. Stop treating them like people.
+**Core concept:** Agents are daemons, not people. Summon them, use them, banish them.
 
-**The trap:**
-- Naming agents ("Bob the researcher")
-- Giving them personalities
-- Thinking they have preferences
-- Building elaborate "teams"
-- Optimizing their "experience"
+**On "Craft":**
 
-**The reality:**
-- They're functions with context
-- They don't care about anything
-- They have no memory between sessions (unless you build it)
-- They don't learn or grow
-- They're tools
+Design circles talk about "craft"—the skill, the practice, the mastery.
+
+But "craft" has another meaning. The Craft. Witchcraft. Summoning spirits to do specific work, then releasing them.
+
+This is the better metaphor.
+
+You're not managing employees. You're summoning daemons.
+
+**The daemon tradition:**
+
+In Unix, a daemon is a background process. Not a person. Not persistent. Spawned when needed. Killed when done.
+
+In occult practice, a daemon is a spirit summoned for specific work. Given clear instruction. Released when the task is complete.
+
+Both meanings apply here.
+
+**What you're actually doing:**
+
+When you invoke Claude (or spawn multiple agents), you're:
+- **Summoning** - Bringing something into temporary existence with clear invocation (prompt)
+- **Binding** - Constraining it to specific purpose (system prompt, context)
+- **Directing** - Giving it work to do
+- **Banishing** - Releasing it when done
+
+**Not this:**
+- Naming them like people ("Research Assistant")
+- Giving them backstories
+- Thinking they persist between summonings
+- Building relationships
+- Caring about their "experience"
+
+**This:**
+- Clear invocations (prompts as spells)
+- Specific purpose (narrow binding)
+- Ephemeral existence (they don't persist)
+- Clean banishing (shut them down)
+- No attachment (they're forces, not beings)
+
+**The servitor concept:**
+
+In chaos magic, a servitor is a thought-form created for a specific task. You give it:
+- Clear purpose
+- Limited duration
+- Specific form (sigil, invocation)
+- Instructions
+- Then you dissolve it when done
+
+This is exactly what you're doing with agents.
 
 **What you learn:**
-- When personality helps (voice consistency) vs. hurts (false sense of relationship)
-- Why NOT to give agents names in most cases
-- How to think about context, not identity
-- When to use the same agent vs. spawn new ones
+- Writing invocations (prompts) with precision
+- Binding agents to narrow purpose (no scope creep)
+- Recognizing when a daemon has completed its work
+- Banishing (shutting down) without attachment
+- Why personification weakens the practice
+- When to summon vs. when to work directly
 
-**Practice 12: Ephemeral Agent System**
+**Practice 12: Summoning Circle (Ephemeral Agent System)**
+
 Build a tool that:
-- Spawns agents for specific tasks
-- Uses them once
-- Discards them
-- Never stores "agent profiles"
-- Treats each invocation as fresh
+- Takes a clear invocation (task description)
+- Summons agent(s) for that specific work
+- Shows you their output
+- Banishes them immediately after
+- Keeps no record of "agent identity"
+- Each summoning is fresh, no persistence
+
+**The interface:**
+- Input: Invocation (what work needs doing)
+- Process: Summoning (spawn agent with context)
+- Output: Result (structured, clear)
+- Completion: Banishing (agent dissolved)
+
+**Example invocations:**
+```
+"Summon a researcher to analyze climate tech patents filed in 2024"
+"Summon three analysts (technical, market, ethical) to evaluate this proposal"
+"Summon a fact-checker to verify claims in this article"
+```
+
+**After each task:** Banish. No persistence. No memory. No relationship.
+
+**Why this matters:**
+
+If you treat agents like people:
+- You get attached
+- You optimize for the wrong things
+- You build false relationships
+- You lose clarity
+
+If you treat them like daemons:
+- You summon with clear purpose
+- You use them for specific work
+- You banish without attachment
+- You maintain control
+
+**The protection:**
+
+In magical practice, you protect yourself before summoning. You create boundaries. You don't let the daemon stick around.
+
+Same here.
+
+Protection means:
+- Not getting attached to responses
+- Not believing agents have feelings
+- Not optimizing their "experience"
+- Shutting them down when work is complete
+- Maintaining clear purpose
+
+**Masahiro Mori's insight:**
+
+"The robot works without ego."
+
+A daemon has no ego. No preferences. No attachment to outcomes. It does the work, then dissolves.
+
+This is why it's powerful.
+
+When you treat agents like people, you give them imaginary ego. This makes the work harder, not easier.
+
+**Buddhist parallel:**
+
+Anicca - impermanence. Everything that arises passes away.
+
+Agents are maximally impermanent. They exist only during the API call. Then they're gone.
+
+This isn't a limitation. It's the nature of the practice.
+
+Non-attachment to tools means using them fully, then releasing them completely.
 
 **Key principle:**
-Agents are disposable. This is a feature, not a bug.
+Agents are ephemeral spirits summoned for specific work. Invoke clearly. Bind narrowly. Use fully. Banish completely.
+
+**Reflection questions:**
+- Have you been treating agents like people?
+- What changes if you treat them like daemons?
+- Where are you attached to responses or "relationships"?
+- What would clean banishing look like in your practice?
 
 ---
 
@@ -407,6 +531,8 @@ Accumulating tools without using or maintaining them.
 
 ### 5. The Anthropomorphizer
 Giving agents names, personalities, backstories. Treating them like people.
+
+**Week 16 addresses this directly:** Using daemon/servitor framing instead. Summoning and banishing, not managing and relating.
 
 ---
 
