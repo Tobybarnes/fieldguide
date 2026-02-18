@@ -41,4 +41,7 @@ yarn-error.log*
 next-env.d.ts
 fieldnotesarchive.zip
 # Field Guide Launch - Complete Task List.md
-fieldguide-substack-content/
+
+# comment response system database
+comments.db
+comments.db-journal
