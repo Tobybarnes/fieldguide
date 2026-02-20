@@ -9,7 +9,7 @@ const principles = [
     romanji: 'Kanso',
     title: 'Simplicity',
     definition: 'Elimination of clutter',
-    description: 'Things are plain. Simple. Natural. Beauty and utility don\'t need to shout. Everything essential, nothing extra.',
+    description: 'Things are plain. Simple. Natural. Beauty and utility don't need to shout. Everything essential, nothing extra.',
     inFieldGuide: 'Clean layouts. Minimal navigation. Focused content. No dashboard bloat. No feature creep. Build what you need, nothing more.',
   },
   {
@@ -19,7 +19,7 @@ const principles = [
     title: 'Asymmetry',
     definition: 'Balanced irregularity',
     description: 'Controlled asymmetry. Avoid perfect symmetry. The goal is balance without uniformity. Beauty lives in imperfection.',
-    inFieldGuide: 'Two-column layouts. Varied spacing. Content that breathes. Not gridded perfection. Purposeful imbalance. Your tools don\'t need to be perfect. They need to work.',
+    inFieldGuide: 'Two-column layouts. Varied spacing. Content that breathes. Not gridded perfection. Purposeful imbalance. Your tools don't need to be perfect. They need to work.',
   },
   {
     id: 'shibumi',
@@ -27,7 +27,7 @@ const principles = [
     romanji: 'Shibui / Shibumi',
     title: 'Subtle Grace',
     definition: 'Understated elegance',
-    description: 'Find beauty by being understated. Be precisely what something should be. Don\'t elaborate. Elegant simplicity.',
+    description: 'Find beauty by being understated. Be precisely what something should be. Don't elaborate. Elegant simplicity.',
     inFieldGuide: 'Muted colors: taupe, cream, moss. Refined typography. Quiet interactions. The design serves. Tools that do their job without fanfare.',
   },
   {
@@ -45,7 +45,7 @@ const principles = [
     romanji: 'Yūgen',
     title: 'Profound Grace',
     definition: 'Showing more by showing less',
-    description: 'An awareness that triggers feelings too deep for words. Subtle depths. The profound sense that\'s experienced, not explained.',
+    description: 'An awareness that triggers feelings too deep for words. Subtle depths. The profound sense that's experienced, not explained.',
     inFieldGuide: 'Progressive disclosure. Hints before reveals. Space for discovery. You learn by building. Not by reading. The loop teaches more than any explanation could.',
   },
   {
@@ -55,7 +55,7 @@ const principles = [
     title: 'Freedom',
     definition: 'Transcending convention',
     description: 'Break from habit. Break from formula. Escape the ordinary. Transcend convention.',
-    inFieldGuide: 'No traditional course structure. No certificates. No completion badges. Build your own dashboard. Make your own tools. Break free from how it\'s supposed to be done.',
+    inFieldGuide: 'No traditional course structure. No certificates. No completion badges. Build your own dashboard. Make your own tools. Break free from how it's supposed to be done.',
   },
   {
     id: 'seijaku',
@@ -131,7 +131,7 @@ export default function DesignPage() {
           Ask yourself: Is this simple enough? Does it feel natural? Am I building what I need, or what I think I should build?
         </p>
         <p className="text-[var(--c-black)]/60 leading-loose">
-          The best tools disappear when you\'re using them.
+          The best tools disappear when you're using them.
           They do their job quietly. Get out of your way.
         </p>
       </div>
