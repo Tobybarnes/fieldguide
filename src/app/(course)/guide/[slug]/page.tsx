@@ -10,7 +10,7 @@ const principles: Record<string, { japanese: string; romanji: string; title: str
     japanese: '自然',
     romanji: 'Shizen',
     title: 'Naturalness',
-    note: 'Be honest about what you can make. No pretense about becoming something you're not. Just the natural capability to build what you need.',
+    note: 'Be honest about what you can make. No pretense about becoming something you\'re not. Just the natural capability to build what you need.',
   },
   'setting-up': {
     japanese: '簡素',

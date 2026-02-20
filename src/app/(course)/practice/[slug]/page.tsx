@@ -66,7 +66,7 @@ const practicePrinciples: Record<string, { japanese: string; romanji: string; ti
     japanese: '自然',
     romanji: 'Shizen',
     title: 'Naturalness',
-    note: 'Track movement as it happens. Honest. Unforced. Real. No artificiality in how you record your body's work.',
+    note: 'Track movement as it happens. Honest. Unforced. Real. No artificiality in how you record your body\'s work.',
   },
   'collect': {
     japanese: '渋み',
@@ -90,7 +90,7 @@ const practicePrinciples: Record<string, { japanese: string; romanji: string; ti
     japanese: '渋み',
     romanji: 'Shibumi',
     title: 'Subtle Grace',
-    note: 'Polish without overstatement. Refinement means removing what doesn't serve. Enhancing what does. Restrained elegance.',
+    note: 'Polish without overstatement. Refinement means removing what doesn\'t serve. Enhancing what does. Restrained elegance.',
   },
   'make-your-own': {
     japanese: 'だつぞく',
@@ -855,171 +855,8 @@ const practices: Record<string, Practice> = {
       'Create multiple dashboard layouts for different contexts',
       'Add ambient sounds or music integration',
     ],
-  },
-  'refine': {
-    num: '08',
-    title: 'Refine',
-    build: 'Revisit + Improve',
-    principle: 'First versions are just first versions',
-    overview: 'By now, you\'ve built several tools. Some you use daily; others you abandoned. This practice is about going back to something you actually use and making it better. Not adding features for the sake of it—solving real friction you\'ve experienced.',
-    beforeYouStart: 'You built a tool three weeks ago. You still use it, but there\'s one annoying thing. Maybe search is too slow, maybe you wish it had dark mode, maybe the mobile layout is broken. You know what needs fixing because you\'ve bumped into it a dozen times. Most people would live with it. This practice is about going back and making it right.',
-    whatYoullBuild: 'An improved version of one of your earlier builds. You\'ll identify what\'s missing, prioritize ruthlessly, and implement the changes that actually matter.',
-    steps: [
-      {
-        title: 'Pick a practice you actually use',
-        description: 'Not your favorite build—the one you USE. If you don\'t use any of them, that\'s useful information. Ask yourself why.',
-      },
-      {
-        title: 'Live with it for a week',
-        description: 'Use your chosen tool every day for a week. Keep a list of every friction point, missing feature, and annoyance. Write them down immediately when you notice them.',
-      },
-      {
-        title: 'Prioritize ruthlessly',
-        description: 'Look at your list. Cross off everything that\'s "nice to have." What remains? Pick the top 3 things that would make the biggest difference.',
-      },
-      {
-        title: 'Fix one thing at a time',
-        description: 'One change, one test, one commit. Don\'t try to fix everything at once.',
-        prompt: '[Describe the specific issue] Fix this by [your proposed solution].',
-        tip: 'One change, one test, one commit. Don\'t try to fix everything at once.',
-        image: '/screenshots/practice-08-refine/01-before-after.png',
-        imageAlt: 'Before and after - showing iteration and improvement',
-      },
-      {
-        title: 'Test your changes',
-        description: 'Use the improved version for another few days. Did the fix actually help? Sometimes our imagined solutions don\'t solve the real problem.',
-      },
-      {
-        title: 'Notice what\'s different',
-        description: 'Compare this experience to Practice 01. What\'s easier now? What do you understand that you didn\'t before?',
-      },
-    ],
-    prompts: [
-      {
-        title: 'Refactor code',
-        prompt: 'Refactor this code to be more readable',
-        use: 'When the code works but is hard to understand.',
-      },
-      {
-        title: 'Error handling',
-        prompt: 'Add error handling for [specific edge case]',
-        use: 'When you\'ve hit an error and want to handle it gracefully.',
-      },
-      {
-        title: 'Mobile improvements',
-        prompt: 'Make this work better on mobile',
-        use: 'When you want to use your tool on your phone.',
-      },
-      {
-        title: 'Performance',
-        prompt: 'Speed up [specific slow interaction]',
-        use: 'When something feels sluggish.',
-      },
-      {
-        title: 'Tests',
-        prompt: 'Add tests to catch regressions',
-        use: 'When you want confidence that changes don\'t break things.',
-      },
-    ],
-    troubleshooting: [
-      {
-        problem: 'Changes broke something',
-        solution: 'This is why we change one thing at a time. Revert and try again.',
-      },
-      {
-        problem: 'Can\'t remember how the code works',
-        solution: 'Read through it with Claude. Ask for explanations.',
-      },
-      {
-        problem: 'Feature creep',
-        solution: 'Return to your prioritized list. Is this on it?',
-      },
-      {
-        problem: 'Don\'t want to touch working code',
-        solution: 'That\'s normal. Start with the smallest, safest change.',
-      },
-    ],
-    reflection: [
-      'What surprised you when you revisited your old code?',
-      'How has your taste changed since you first built it?',
-      'What would you do differently if starting over?',
-      'Is "refinement" ever really done?',
-    ],
-    extensions: [
-      'This practice IS the extension. Keep refining.',
-      'Create a changelog for your tool',
-      'Version your releases (v1.0, v1.1, etc.)',
-      'Share your tool with someone else and get feedback',
-    ],
-  },
-  'make-your-own': {
-    num: '09',
-    title: 'Make Your Own',
-    build: 'Self-directed',
-    principle: 'You don\'t need permission',
-    overview: 'Everything until now has been guided. This is you on your own. Build something only you would build. A tool for a problem only you have. The weird idea that doesn\'t fit any category. This is the point of everything—not to follow tutorials forever, but to make things that matter to you.',
-    beforeYouStart: 'You\'ve followed eight practices. You know the loop. You\'ve built things that work. But there\'s that one idea you\'ve been holding back—the weird one, the one that feels too specific to you, the one you\'re not sure anyone else would care about. That\'s exactly the one to build. This practice has no instructions because you don\'t need them anymore.',
-    whatYoullBuild: 'Whatever you want. No requirements. No templates. Just you and Claude.',
-    heroImage: '/screenshots/practice-09-make-your-own/01-blank-canvas.png',
-    heroImageAlt: 'A blank canvas - what will you build?',
-    steps: [
-      {
-        title: 'What do you wish existed?',
-        description: 'Not "what app idea could make money"—what do YOU wish existed? What problem do YOU have that nobody else seems to care about?',
-      },
-      {
-        title: 'What do you do manually that could be automated?',
-        description: 'What repetitive task do you do every day or every week? Not everything should be automated, but what deserves to be?',
-      },
-      {
-        title: 'What information do you constantly look up?',
-        description: 'What do you Google repeatedly? What\'s in your notes app that you search for often? Could it be at your fingertips instead?',
-      },
-      {
-        title: 'Start smaller than you think',
-        description: 'Whatever your idea is, make it simpler. Then simpler again. The first version should do ONE thing. You can expand later.',
-        tip: '"But what I really want is..." No. Start with the smallest useful version.',
-      },
-      {
-        title: 'Build it',
-        description: 'You know how now. Describe what you want. Test it. Refine it. Make it yours.',
-      },
-      {
-        title: 'Ship it',
-        description: 'Put it somewhere you can use it. Even if it\'s just on your own computer. A tool that lives only in your imagination isn\'t a tool.',
-      },
-    ],
-    troubleshooting: [
-      {
-        problem: '"I don\'t have any ideas"',
-        solution: 'Carry a notebook for a week. Write down every friction point.',
-      },
-      {
-        problem: '"My idea is too big"',
-        solution: 'It is. What\'s the smallest piece that\'s useful on its own?',
-      },
-      {
-        problem: '"Someone already built this"',
-        solution: 'Cool. Build your version anyway. You\'ll learn something.',
-      },
-      {
-        problem: '"It\'s not good enough"',
-        solution: 'Ship it anyway. Refine later.',
-      },
-    ],
-    reflection: [
-      'What did you build?',
-      'Why does it matter to you?',
-      'Would you have attempted this before starting this course?',
-      'What will you build next?',
-    ],
-    extensions: [
-      'There are no extensions. There\'s only what you make.',
-      'Share what you built in the community.',
-      'Help someone else build their idea.',
-    ],
-  },
-};
+  },};
+
 
 export default function PracticePage() {
   const params = useParams();
