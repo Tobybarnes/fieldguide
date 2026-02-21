@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import * as motion from 'motion/react-client';
 import { ScrambleText } from './components/ScrambleText';
 
@@ -15,16 +14,18 @@ export default function Home() {
         className="fixed top-0 left-0 right-0 z-50 bg-[var(--c-cream)]/90 backdrop-blur-sm border-b border-[var(--c-black)]/5"
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-4 flex justify-between items-center">
-          <Link href="/" className="text-sm font-bold tracking-wide">
+          <div className="text-sm font-bold tracking-wide">
             FIELDGUIDE
-          </Link>
+          </div>
           <nav className="flex items-center gap-8">
-            <Link
-              href="/login"
+            <a
+              href="https://fieldguidebuilders.substack.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-xs font-semibold px-4 py-2 border border-[var(--c-black)] hover:bg-[var(--c-black)] hover:text-[var(--c-cream)] transition-all"
             >
-              I have access
-            </Link>
+              Subscribe
+            </a>
           </nav>
         </div>
       </motion.header>
@@ -46,7 +47,7 @@ export default function Home() {
               className="absolute top-12 left-12 z-10"
             >
               <div className="text-xs uppercase tracking-wide font-bold text-white/70">
-                <ScrambleText text="Field Guide 01" scrambleOnHover />
+                <ScrambleText text="Field Guide 2026" scrambleOnHover />
               </div>
             </motion.div>
 
@@ -69,7 +70,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 1 }}
               className="absolute bottom-12 left-12 z-10 text-xs font-semibold text-white/70"
             >
-              ( <ScrambleText text="Nine Practices" scrambleOnHover /> )
+              ( <ScrambleText text="21-Week Course" scrambleOnHover /> )
             </motion.div>
           </motion.div>
         </div>
@@ -80,7 +81,7 @@ export default function Home() {
           <div className="lg:hidden relative bg-[var(--c-taupe)] min-h-[50vh]">
             <div className="absolute top-8 left-8 z-10">
               <div className="text-xs uppercase tracking-wide font-bold text-white/70">
-                <ScrambleText text="Field Guide 01" scrambleOnHover />
+                <ScrambleText text="Field Guide 2026" scrambleOnHover />
               </div>
             </div>
             <div className="absolute inset-0 flex items-center justify-center">
@@ -91,7 +92,7 @@ export default function Home() {
               />
             </div>
             <div className="absolute bottom-8 left-8 z-10 text-xs font-semibold text-white/70">
-              ( <ScrambleText text="Nine Practices" scrambleOnHover /> )
+              ( <ScrambleText text="21-Week Course" scrambleOnHover /> )
             </div>
           </div>
 
@@ -113,9 +114,9 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.5 }}
                 className="text-3xl lg:text-5xl leading-[1.1] font-normal mb-8 tracking-tight"
               >
-                Build what you need.{' '}
-                <span className="headline-serif italic">Nothing</span>{' '}
-                more.
+                Build your own AI tools.{' '}
+                <span className="headline-serif italic">No coding</span>{' '}
+                required.
               </motion.h1>
 
               <motion.div
@@ -125,13 +126,10 @@ export default function Home() {
                 className="text-sm leading-relaxed text-[#444] max-w-sm mb-10"
               >
                 <p className="mb-6">
-                  A field guide to making your own tools with Claude. For tinkerers,
-                  makers, and people who&apos;d rather{' '}
-                  <span className="italic">build the thing</span>{' '}
-                  than buy the subscription.
+                  A 21-week course on building personal tools with Claude AI. For people who want to make what they need, not buy what someone else built.
                 </p>
                 <p>
-                  Nine practices. Fifty prompts. A way of thinking.
+                  Nine practices. Buddhist principles. Weekly delivery.
                 </p>
               </motion.div>
 
@@ -143,19 +141,21 @@ export default function Home() {
                 className="flex flex-col sm:flex-row gap-4 mb-8"
               >
                 <a
-                  href="https://wholeearthdesign.gumroad.com/l/fieldguide01"
+                  href="https://fieldguidebuilders.substack.com/p/week-01"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block px-8 py-4 bg-[var(--c-black)] text-[var(--c-cream)] text-sm font-semibold hover:opacity-90 transition-opacity text-center"
                 >
-                  Get the Field Guide — $29
+                  Start Free: Read Week 1
                 </a>
-                <Link
-                  href="/login"
+                <a
+                  href="https://fieldguidebuilders.substack.com/subscribe"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-block px-8 py-4 border border-[var(--c-black)] text-[var(--c-black)] text-sm font-semibold hover:bg-[var(--c-black)] hover:text-[var(--c-cream)] transition-all text-center"
                 >
-                  I have access
-                </Link>
+                  Subscribe — $24/month
+                </a>
               </motion.div>
 
               <motion.div
@@ -164,12 +164,12 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 1.1 }}
                 className="text-xs text-[var(--c-black)]/50"
               >
-                Lifetime access · No subscription · All updates included
+                First 4 weeks free · Cancel anytime · New week every Thursday
               </motion.div>
             </div>
           </section>
 
-          {/* What You Get Section */}
+          {/* What You'll Learn Section */}
           <motion.section
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -180,15 +180,15 @@ export default function Home() {
           >
             <div className="max-w-lg">
               <h2 className="text-2xl lg:text-3xl font-normal mb-10 tracking-tight">
-                What you <span className="headline-serif italic">get</span>
+                What you&apos;ll <span className="headline-serif italic">learn</span>
               </h2>
 
               <div className="space-y-8">
                 {[
-                  { num: '01', title: '4 Foundation Guides', desc: 'Before You Begin, Setting Up, The Loop, and Shipping. Everything you need to go from zero to deployed.' },
-                  { num: '02', title: '9 Practices', desc: 'Hands-on projects from a personal page to a full dashboard. Each one teaches a different way of thinking.' },
-                  { num: '03', title: '50+ Prompts', desc: 'A library of prompts for starting, expanding, fixing, polishing, and maintaining your tools.' },
-                  { num: '04', title: 'Resources', desc: 'Glossary, useful links, MCP setup guides, and troubleshooting. Plain language, no jargon.' },
+                  { num: '01', title: 'Foundation (Weeks 1-4)', desc: 'Before You Begin, Setting Up, The Loop, and Shipping. Everything you need to go from idea to working tool.' },
+                  { num: '02', title: 'Nine Practices (Weeks 5-13)', desc: 'Build actual tools: link catcher, daily log, training tracker, music library, photo journal, and personal dashboard.' },
+                  { num: '03', title: 'Agent Orchestration (Weeks 14-17)', desc: 'Work with multiple AI agents. Research synthesis, multi-source analysis, and the daemon/craft concept.' },
+                  { num: '04', title: 'Projects (Weeks 18-21)', desc: 'From practices to projects. Identifying patterns, planning systems, and building what matters.' },
                 ].map((item, i) => (
                   <motion.div
                     key={item.num}
@@ -268,12 +268,12 @@ export default function Home() {
 
               <div className="space-y-4">
                 {[
-                  "You're tired of paying for apps that almost do what you want",
-                  "You'd rather build something small that works than wait for the perfect tool",
+                  "You want tools that work exactly how you think, not how someone else designed them",
+                  "You'd rather build something specific than subscribe to something generic",
                   "You're curious about AI but don't want to become a developer",
-                  "You like making things with your hands (even if they're digital)",
-                  "You believe in tools that serve you, not the other way around",
-                  "You want to understand what you're using, not just use it",
+                  "You believe in understanding what you use, not just using it",
+                  "You like making things (even if they're digital)",
+                  "You value simplicity, naturalness, and tools that disappear when you're working",
                 ].map((item, i) => (
                   <motion.div
                     key={i}
@@ -302,7 +302,7 @@ export default function Home() {
           >
             <div className="max-w-lg">
               <div className="text-[10px] uppercase tracking-widest text-white/40 mb-6">
-                Whole Earth Catalog
+                Whole Earth Catalog, 1968
               </div>
               <blockquote className="text-xl lg:text-2xl font-normal leading-relaxed mb-6 headline-serif italic">
                 &ldquo;We are as gods and might as well get good at it.&rdquo;
@@ -330,7 +330,7 @@ export default function Home() {
                 Seven <span className="headline-serif italic">Principles</span>
               </h2>
               <p className="text-sm text-[#444] leading-relaxed mb-8">
-                Field Guide draws from Japanese aesthetic philosophy. Seven principles that craftspeople have used for centuries. Simplicity. Asymmetry. Subtle grace. Naturalness. Mystery. Freedom. Stillness. Ways of thinking about making things.
+                Field Guide draws from Japanese aesthetic philosophy. Seven principles that craftspeople have used for centuries. Simplicity. Asymmetry. Subtle grace. Naturalness. Mystery. Freedom. Stillness. Ways of thinking about making things that last.
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center text-xs text-[var(--c-black)]/60">
                 <div>
@@ -383,23 +383,27 @@ export default function Home() {
                 {[
                   {
                     q: "Do I need to know how to code?",
-                    a: "No. That's the whole point. You'll learn to describe what you want and work with Claude to build it. The guide teaches you how to think about building, not how to write code."
+                    a: "No. You'll learn to work with Claude AI to build tools. The course teaches you how to think about building and how to describe what you want. Claude handles the code."
                   },
                   {
                     q: "What do I need to get started?",
-                    a: "A Claude Pro subscription ($20/month), a text editor (free), and a Google account for the MCP integration. The guide walks you through connecting Claude to your calendar and email."
+                    a: "A Claude Pro subscription ($20/month from Anthropic) and a text editor (VS Code is free). Week 2 walks you through setup. Week 3 you build your first tool."
                   },
                   {
                     q: "How is this different from other AI courses?",
-                    a: "Most courses teach you to use AI to be more productive at work. This teaches you to build your own tools for your own life. No hustle, no scale, no optimization. Just useful things."
+                    a: "Most courses teach productivity hacks or how to prompt AI at work. This teaches you to build personal tools for your own life. Philosophical depth, not productivity theater. Based on Buddhist principles and Whole Earth Catalog thinking."
+                  },
+                  {
+                    q: "What's the format?",
+                    a: "Weekly posts delivered via Substack. Each week includes philosophy, step-by-step instructions, copy-paste prompts, troubleshooting, and extensions. First 4 weeks are free. Weeks 5-21 require paid subscription ($24/month)."
+                  },
+                  {
+                    q: "Can I get lifetime access instead of subscribing?",
+                    a: "Yes. After Week 12, you'll be able to purchase downloadable bundles on Gumroad: Foundation (Weeks 1-12) for $39, Advanced (Weeks 13-21) for $39, or both for $69. Coming soon."
                   },
                   {
                     q: "What if I get stuck?",
-                    a: "The guide includes troubleshooting resources and a glossary. You can also join the community Discord to ask questions and share what you're building."
-                  },
-                  {
-                    q: "Is there a refund policy?",
-                    a: "Yes. If it's not for you, email within 30 days for a full refund. No questions."
+                    a: "Each week includes detailed troubleshooting. You can also ask questions in the Substack comments where other students and I can help."
                   },
                 ].map((faq, i) => (
                   <motion.div
@@ -432,7 +436,7 @@ export default function Home() {
                 Ready to build your own <span className="headline-serif italic">tools</span>?
               </h2>
               <p className="text-sm text-white/70 mb-10">
-                Nine practices. Fifty prompts. A way of thinking that lasts longer than any tool.
+                21 weeks. Nine practices. A way of thinking that lasts longer than any tool.
               </p>
 
               <motion.div
@@ -443,23 +447,25 @@ export default function Home() {
                 className="flex flex-col sm:flex-row gap-4 mb-8"
               >
                 <a
-                  href="https://wholeearthdesign.gumroad.com/l/fieldguide01"
+                  href="https://fieldguidebuilders.substack.com/p/week-01"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block px-8 py-4 bg-[var(--c-cream)] text-[var(--c-black)] text-sm font-semibold hover:opacity-90 transition-opacity text-center"
                 >
-                  Get the Field Guide — $29
+                  Start Free: Read Week 1
                 </a>
-                <Link
-                  href="/login"
+                <a
+                  href="https://fieldguidebuilders.substack.com/subscribe"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-block px-8 py-4 border border-white text-white text-sm font-semibold hover:bg-white hover:text-[var(--c-black)] transition-all text-center"
                 >
-                  I have access
-                </Link>
+                  Subscribe — $24/month
+                </a>
               </motion.div>
 
               <div className="text-xs text-white/50">
-                Lifetime access · No subscription · All updates included
+                First 4 weeks free · Cancel anytime · Coming soon: Lifetime bundles
               </div>
             </div>
           </motion.section>
@@ -468,10 +474,17 @@ export default function Home() {
           <footer className="bg-[var(--c-black)] text-white/50 border-t border-white/10" style={{ padding: '2rem 4rem' }}>
             <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
               <div className="text-xs">
-                <ScrambleText text="FIELDGUIDE" scrambleOnHover /> · Whole Earth Design
+                <ScrambleText text="FIELDGUIDE" scrambleOnHover /> · 2026
               </div>
               <div className="text-xs">
-                A tool for making tools.
+                <a
+                  href="https://fieldguidebuilders.substack.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  Read on Substack
+                </a>
               </div>
             </div>
           </footer>
