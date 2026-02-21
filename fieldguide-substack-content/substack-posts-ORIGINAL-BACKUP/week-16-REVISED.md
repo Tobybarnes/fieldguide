@@ -4,22 +4,6 @@
 
 ---
 
----
-
-<!-- PAYWALL: Paid subscribers only beyond this point -->
-
-**🔒 The rest of this post is for paid subscribers.**
-
-Subscribe to get:
-- Complete step-by-step instructions
-- All troubleshooting guidance
-- Copyable prompts and templates
-- Extension ideas and advanced features
-
-**Not ready to subscribe?** Get Weeks 1-12 as a downloadable package for $39 (one-time payment).
-
----
-
 ## Two Meanings of Craft
 
 Design circles talk about craft. The skill. The practice. The care in making.

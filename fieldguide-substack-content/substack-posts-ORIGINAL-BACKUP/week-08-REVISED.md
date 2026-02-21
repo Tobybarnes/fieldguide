@@ -33,22 +33,6 @@ We'll use vinyl records as the example, but you can adapt this to whatever you c
 
 ---
 
----
-
-<!-- PAYWALL: Paid subscribers only beyond this point -->
-
-**🔒 The rest of this post is for paid subscribers.**
-
-Subscribe to get:
-- Complete step-by-step instructions
-- All troubleshooting guidance
-- Copyable prompts and templates
-- Extension ideas and advanced features
-
-**Not ready to subscribe?** Get Weeks 1-12 as a downloadable package for $39 (one-time payment).
-
----
-
 ## Step 01: Define your collection
 
 Tell Claude what you collect and what you want to track about each item.

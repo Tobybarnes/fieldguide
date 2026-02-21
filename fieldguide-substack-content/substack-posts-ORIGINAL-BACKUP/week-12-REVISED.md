@@ -59,22 +59,6 @@ Pick one tool you've built and actually used. Not the one you're most proud ofâ€
 
 Spend this week using it with full attention. Notice every friction point. Then fix what actually matters.
 
----
-
-<!-- PAYWALL: Paid subscribers only beyond this point -->
-
-**ðŸ”’ The rest of this post is for paid subscribers.**
-
-Subscribe to get:
-- Complete step-by-step instructions
-- All troubleshooting guidance
-- Copyable prompts and templates
-- Extension ideas and advanced features
-
-**Not ready to subscribe?** Get Weeks 1-12 as a downloadable package for $39 (one-time payment).
-
----
-
 ### Step 01: Choose your tool
 
 Look at what you've built:

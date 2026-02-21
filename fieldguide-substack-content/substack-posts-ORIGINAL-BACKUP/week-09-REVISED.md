@@ -58,22 +58,6 @@ This tool is private. No one sees it but you. The questions force you to slow do
 
 Photography trains you to see. This tool supports that practice.
 
----
-
-<!-- PAYWALL: Paid subscribers only beyond this point -->
-
-**🔒 The rest of this post is for paid subscribers.**
-
-Subscribe to get:
-- Complete step-by-step instructions
-- All troubleshooting guidance
-- Copyable prompts and templates
-- Extension ideas and advanced features
-
-**Not ready to subscribe?** Get Weeks 1-12 as a downloadable package for $39 (one-time payment).
-
----
-
 ### Step 01: Describe the basic structure
 
 **Prompt to copy:**

@@ -263,22 +263,6 @@ The other 90% is one agent, iterated.
 
 ---
 
----
-
-<!-- PAYWALL: Paid subscribers only beyond this point -->
-
-**🔒 The rest of this post is for paid subscribers.**
-
-Subscribe to get:
-- Complete step-by-step instructions
-- All troubleshooting guidance
-- Copyable prompts and templates
-- Extension ideas and advanced features
-
-**Not ready to subscribe?** Get Weeks 1-12 as a downloadable package for $39 (one-time payment).
-
----
-
 ## The Practice: Recognition
 
 This week has no new practice to build.

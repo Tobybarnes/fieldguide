@@ -49,22 +49,6 @@ You're not part of the road anymore. You know how to build.
 
 Before you move forward, answer these honestly:
 
----
-
-<!-- PAYWALL: Paid subscribers only beyond this point -->
-
-**🔒 The rest of this post is for paid subscribers.**
-
-Subscribe to get:
-- Complete step-by-step instructions
-- All troubleshooting guidance
-- Copyable prompts and templates
-- Extension ideas and advanced features
-
-**Not ready to subscribe?** Get Weeks 1-12 as a downloadable package for $39 (one-time payment).
-
----
-
 ### 1. What actually changed about how you work?
 
 Not "what did you build" but "what's different in your daily practice?"

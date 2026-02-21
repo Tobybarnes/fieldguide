@@ -18,22 +18,6 @@ You learn what you need by building. Requirements emerge through use. The best p
 
 ---
 
----
-
-<!-- PAYWALL: Paid subscribers only beyond this point -->
-
-**🔒 The rest of this post is for paid subscribers.**
-
-Subscribe to get:
-- Complete step-by-step instructions
-- All troubleshooting guidance
-- Copyable prompts and templates
-- Extension ideas and advanced features
-
-**Not ready to subscribe?** Get Weeks 1-12 as a downloadable package for $39 (one-time payment).
-
----
-
 ## Jean Boulton: Process Over Prediction
 
 Boulton writes about complex systems. You can't predict outcomes by planning every step. Stability emerges from ongoing interaction and adjustment.
