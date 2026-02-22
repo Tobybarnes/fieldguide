@@ -9,8 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.34.1",
-    "better-sqlite3": "^11.8.1",
+    "@vercel/analytics": "^1.6.1",
     "framer-motion": "^12.29.2",
     "motion": "^12.29.2",
     "next": "16.1.6",

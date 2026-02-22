@@ -1,0 +1,10 @@
+node_modules
+builds
+.next
+fieldguide-substack-content
+*.log
+.DS_Store
+.env.local
+.vercel
+src/app/(course)/practice/[slug]/page.tsx.backup
+src/app/(course)/practice/[slug]/page.tsx.bak
