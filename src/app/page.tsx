@@ -19,7 +19,7 @@ export default function Home() {
           </div>
           <nav className="flex items-center gap-8">
             <a
-              href="https://fieldguidebuilders.substack.com"
+              href="https://accesstotools.substack.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-xs font-semibold px-4 py-2 border border-[var(--c-black)] hover:bg-[var(--c-black)] hover:text-[var(--c-cream)] transition-all"
@@ -141,7 +141,7 @@ export default function Home() {
                 className="flex flex-col sm:flex-row gap-4 mb-8"
               >
                 <a
-                  href="https://fieldguidebuilders.substack.com/p/week-01"
+                  href="https://accesstotools.substack.com/p/week-01"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block px-8 py-4 bg-[var(--c-black)] text-[var(--c-cream)] text-sm font-semibold hover:opacity-90 transition-opacity text-center"
@@ -149,7 +149,7 @@ export default function Home() {
                   Start Free: Read Week 1
                 </a>
                 <a
-                  href="https://fieldguidebuilders.substack.com/subscribe"
+                  href="https://accesstotools.substack.com/subscribe"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block px-8 py-4 border border-[var(--c-black)] text-[var(--c-black)] text-sm font-semibold hover:bg-[var(--c-black)] hover:text-[var(--c-cream)] transition-all text-center"
@@ -447,7 +447,7 @@ export default function Home() {
                 className="flex flex-col sm:flex-row gap-4 mb-8"
               >
                 <a
-                  href="https://fieldguidebuilders.substack.com/p/week-01"
+                  href="https://accesstotools.substack.com/p/week-01"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block px-8 py-4 bg-[var(--c-cream)] text-[var(--c-black)] text-sm font-semibold hover:opacity-90 transition-opacity text-center"
@@ -455,7 +455,7 @@ export default function Home() {
                   Start Free: Read Week 1
                 </a>
                 <a
-                  href="https://fieldguidebuilders.substack.com/subscribe"
+                  href="https://accesstotools.substack.com/subscribe"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block px-8 py-4 border border-white text-white text-sm font-semibold hover:bg-white hover:text-[var(--c-black)] transition-all text-center"
@@ -478,7 +478,7 @@ export default function Home() {
               </div>
               <div className="text-xs">
                 <a
-                  href="https://fieldguidebuilders.substack.com"
+                  href="https://accesstotools.substack.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
